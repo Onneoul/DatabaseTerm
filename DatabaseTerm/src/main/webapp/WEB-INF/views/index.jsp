@@ -6,6 +6,8 @@
         <!--
             css파일이랑 js파일 전부 index에 넣으면 개별 파일에 넣을 필요가 없음
         -->
+        <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css">
+        <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/user.css">
 	</head>
 	<body>
 		<jsp:include page="${content }"></jsp:include>

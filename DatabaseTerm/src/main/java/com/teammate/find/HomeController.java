@@ -27,9 +27,10 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req, HttpServletResponse res) {
-		req.setAttribute("content", "home.jsp");
+		req.setAttribute("content", "user/profile.jsp");
 		return "index";
 	}
+	
 	public String indexDo(HttpServletRequest req, HttpServletResponse res) {
 		return home(req,res);
 	}

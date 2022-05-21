@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+#profileMain {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 60%;
+    text-align: center;
+}
+
+#siteProfile {
+    width: 45%;
+    float: left;
+    margin-right: 5%;
+}
+
+#githubProfile {
+    text-align: right;
+    width: 45%;
+    float: right;
+}
