@@ -9,41 +9,7 @@
 		<link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css">
 	</head>
 	<body>
-		<div id="wrap">
-			<div class="SideBar">
-				왼쪽 탭<br>
-				<table class="menu">
-					<tr>
-						<td><a href="/Project/select.jsp" target="_parent">프로젝트 조회</a></td>
-					</tr>
-					<tr>
-						<td><a href="">프로젝트 검색</a></td>
-					</tr>
-					<tr>
-						<td><a href=""></a></td>
-					</tr>
-					<tr>
-						<td></td>
-					</tr>
-				</table>
-			</div>
-			<div id="Content">
-				가운데
-				<iframe id="innerPage" src="../project/select.jsp" width="100%" height="100%">
-				<!-- <a href="" target="_parent" or "_top" 
-					parent는 링크 내용을 부모 프레임에 표시
-					top은 프레임에서 벗어나 링크 내용을 전체 화면에 표시
-				-->
-				</iframe> 
-			</div>
-			<div class="SideBar">
-				RightSide<br>
-				<table class="menu">
-					<tr>
-						<td>로그인</td>
-					</tr>
-				</table>
-			</div>
-		</div>
+		<p>메인 화면입니다.</p><br>
+		<p>이벤트, 공지 등과 알고리즘을 통한 관심 있을 프로젝트가 노출되는 페이지입니다.</p>
 	</body>
 </html>
