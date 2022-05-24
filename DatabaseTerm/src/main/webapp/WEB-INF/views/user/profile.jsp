@@ -22,6 +22,9 @@
                     <tr>
                         <td>자기소개</td>
                     </tr>
+                    <tr>
+                    	<td>스택</td>
+                    </tr>
                 </table>
             </div>
             <div id="githubProfile">

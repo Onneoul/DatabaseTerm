@@ -14,10 +14,16 @@
 				왼쪽 탭<br>
 				<table class="menu">
 					<tr>
-						<td><a href="/Project/select.jsp" target="_parent">프로젝트 조회</td>
+						<td><a href="/Project/select.jsp" target="_parent">프로젝트 조회</a></td>
 					</tr>
 					<tr>
-						<td>프로젝트 검색</td>
+						<td><a href="">프로젝트 검색</a></td>
+					</tr>
+					<tr>
+						<td><a href=""></a></td>
+					</tr>
+					<tr>
+						<td></td>
 					</tr>
 				</table>
 			</div>
