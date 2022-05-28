@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ProjectController {
 	
-	@RequestMapping(value="project.select", method=RequestMethod.GET)
+	@RequestMapping(value="project.view", method=RequestMethod.GET)
 	public String projectView(HttpServletRequest req, HttpServletResponse res) {
 		req.setAttribute("content", "/project/select.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value = "project.insert", method = RequestMethod.POST)
+	@RequestMapping(value = "project.insert", method = RequestMethod.GET)
 	public String projectInsert(HttpServletRequest req, HttpServletResponse res) {
 		req.setAttribute("content", "/project/insert.jsp");
 		return "index";
