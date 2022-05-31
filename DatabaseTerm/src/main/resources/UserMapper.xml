@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserMapper">
-	<select id="viewUserProfile" parameterType="" resultType="com.teammate.find.User.User"></select>
+	<select id="viewUserProfile" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
+		
+	</select>
+	<update id="updateUserProfile" parameterType="com.teammate.find.User.User"></update>
+	
+	<delete id="deleteUserProfile" parameterType="com.teammate.find.User.User"></delete>
 </mapper>
