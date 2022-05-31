@@ -17,9 +17,9 @@ a {
     text-align: center;
 }   
 
-#Content {
-	margin-top: 5%;
-	margin-bottom: 5%;
+#siteContent {
+	/* margin-top: 5%;
+	margin-bottom: 5%; */
     align-self: center;
     width: 70%;
     height: 90%;

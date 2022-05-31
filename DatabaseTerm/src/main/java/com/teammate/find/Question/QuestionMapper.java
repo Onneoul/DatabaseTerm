@@ -1,5 +1,5 @@
 package com.teammate.find.Question;
 
-public class QuestionMapper {
+public interface QuestionMapper {
 
 }
