@@ -3,7 +3,8 @@ package com.teammate.find.Question;
 import java.util.Date;
 
 public class Answer {
-	private int questionNumber;
+	private int questionCode;
+	private int code;
 	private int writer;
 	private String content;
 	private Date date;
@@ -13,17 +14,18 @@ public class Answer {
 		
 	}
 	
-	public Answer(int questionNumber, int writer, String content, Date date, int recommendation) {
+	public Answer(int questionCode, int code, int writer, String content, Date date, int recommendation) {
 		super();
-		this.questionNumber = questionNumber;
+		this.questionCode = questionCode;
+		this.code = code;
 		this.writer = writer;
 		this.content = content;
 		this.date = date;
 		this.recommendation = recommendation;
 	}
 	
-	public int getQuestionNumber() {
-		return questionNumber;
+	public int getquestionCode() {
+		return questionCode;
 	}
 	public int getWriter() {
 		return writer;
@@ -37,10 +39,13 @@ public class Answer {
 	public int getRecommendation() {
 		return recommendation;
 	}
+	public int getCode() {
+		return code;
+	}
 	
 	
-	public void setQuestionNumber(int questionNumber) {
-		this.questionNumber = questionNumber;
+	public void setquestionCode(int questionCode) {
+		this.questionCode = questionCode;
 	}
 	public void setWriter(int writer) {
 		this.writer = writer;
@@ -53,5 +58,8 @@ public class Answer {
 	}
 	public void setRecommendation(int recommendation) {
 		this.recommendation = recommendation;
+	}
+	public void setCode(int code) {
+		this.code = code;
 	}
 }

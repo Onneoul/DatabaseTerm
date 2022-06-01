@@ -1,6 +1,7 @@
 package com.teammate.find.User;
 
 public class User {
+	private int userCode;
 	private String userId;
 	private String userPw;
 	private String userName;
@@ -11,8 +12,9 @@ public class User {
 		
 	}
 	
-	public User(String userId, String userPw, String userName, String githubId, String eMail) {
+	public User(int userCode, String userId, String userPw, String userName, String githubId, String eMail) {
 		super();
+		this.userCode = userCode;
 		this.userId = userId;
 		this.userPw = userPw;
 		this.userName = userName;
@@ -20,11 +22,12 @@ public class User {
 		this.eMail = eMail;
 	}
 	
-	public String getuserId () {return userId; }
-	public String getuserPw () {return userPw; }
-	public String getuserName () {return userName; }
-	public String getgithubId () {return githubId; }
-	public String geteMail () {return eMail; }
+	public String getuserId() {return userId; }
+	public String getuserPw() {return userPw; }
+	public String getuserName() {return userName; }
+	public String getgithubId() {return githubId; }
+	public String geteMail() {return eMail; }
+	public int getUserCode() {return userCode; }
 	
 	public void setuserId (String userId) {this.userId = userId; }
 	public void setuserPw (String userPw) {this.userPw = userPw; }

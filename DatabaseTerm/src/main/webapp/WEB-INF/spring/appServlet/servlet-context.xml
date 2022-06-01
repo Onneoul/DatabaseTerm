@@ -23,6 +23,34 @@
 	
 	<context:component-scan base-package="com.teammate.find" />
 	
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></beans:property>
+		<beans:property name="url" value="jdbc:mysql://127.0.0.1:3306/test_find_teammate"></beans:property>
+		<beans:property name="username" value="root"></beans:property>
+		<beans:property name="password" value="#a354354"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="typeAliasesPackage" value="com.teammate.find" />
+		<beans:property name="mapperLocations">
+			<beans:list>
+				<beans:value>classpath:UserMapper.xml</beans:value>
+				<beans:value>classpath:ProjectMapper.xml</beans:value>
+				<beans:value>classpath:EventMapper.xml</beans:value>
+				<beans:value>classpath:QuestionMapper.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</beans:bean>
+	
 	
 	
 </beans:beans>

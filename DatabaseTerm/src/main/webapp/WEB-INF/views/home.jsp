@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Home</title>
 		<!-- <link rel="stylesheet" type="text/css" href="../../resource/css/main.css"> -->
-		<link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css">
+		<!-- <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css"> -->
 	</head>
 	<body>
 		<p>메인 화면입니다.</p><br>

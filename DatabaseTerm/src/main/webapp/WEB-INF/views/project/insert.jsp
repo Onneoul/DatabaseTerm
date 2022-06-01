@@ -10,20 +10,20 @@
             <div>
                 <table>
                     <tr>
-                        <td> <input type="text" id="projectTitle" name="projectTitle" autofocus placeholder="프로젝트 타이틀"> 프로젝트 타이틀 </td>
+                        <td> <input type="text" id="projectTitleInput" name="projectTitle" autofocus placeholder="프로젝트 타이틀"> 프로젝트 타이틀 </td>
                     </tr>
                     <tr>
-                        <td> <input type="textarea" id="projectContent" name="projectContent" placeholder="프로젝트 내용"> 프로젝트 내용 </td>
+                        <td> <input type="textarea" id="projectContentInput" name="projectContent" placeholder="프로젝트 내용"> 프로젝트 내용 </td>
                     </tr>
                     <tr>
-                        <td> <input type="text" id="projectSubTitle" name="projectSubTitle" placeholder="프로젝트 부제"> 프로젝트 부제 </td>
+                        <td> <input type="text" id="projectSubTitleInput" name="projectSubTitle" placeholder="프로젝트 부제"> 프로젝트 부제 </td>
                     </tr>
                     <tr>
-                        <td> <input type="color" id="projectColor" name="projectColor"> 프로젝트 색깔 </td>
+                        <td> <input type="color" id="projectColorInput" name="projectColor"> 프로젝트 색깔 </td>
                     </tr>
                     <tr>
                         <td> <input type="submit"> 제출 </td>
-                        <td> <button type="submit" id="button1" onclick="/*자바스크립트 함수*/" value="전송"></button> </td>
+                        <td> <button type="submit" id="button1" onclick="projectCreate" value="전송"></button> </td>
                     </tr>
                 </table>
             </div>

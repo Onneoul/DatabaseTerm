@@ -29,11 +29,11 @@
 						</tr>
 					</table>
 			</div>
-			<table id="siteContent">
-				<tr>
-					<td align="center"><jsp:include page="project/insert.jsp"></jsp:include></td>
-				</tr>
-			</table>
+				<div id="siteContent">
+					<table>
+						<tr><td align="center"><jsp:include page="../views/event/eventInsert.jsp"></jsp:include></td></tr>
+					</table>>
+				</div>
 			<div class="SideBar">
 					RightSide<br>
 					<table class="menu">

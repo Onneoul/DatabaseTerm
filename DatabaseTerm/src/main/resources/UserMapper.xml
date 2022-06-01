@@ -4,7 +4,16 @@
 	<select id="viewUserProfile" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
 		
 	</select>
+	<select id="getUserLevel" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
+		select userLevel from user where userCode = #{userCode}
+	</select>
+	<select id="getUserbyCode" parameterType="int" resultType="com.teammate.find.User.User">
+		select * from user where userCode = #{userCode};
+	</select>
+	
 	<update id="updateUserProfile" parameterType="com.teammate.find.User.User"></update>
 	
 	<delete id="deleteUserProfile" parameterType="com.teammate.find.User.User"></delete>
+	
+	
 </mapper>
