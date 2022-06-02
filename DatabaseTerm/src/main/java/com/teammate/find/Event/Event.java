@@ -1,4 +1,4 @@
-package com.teammate.find.Site.Event;
+package com.teammate.find.Event;
 
 import java.util.Date;
 

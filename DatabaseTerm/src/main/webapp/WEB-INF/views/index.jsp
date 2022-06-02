@@ -41,7 +41,7 @@
 					RightSide<br>
 					<table class="menu">
 						<tr>
-							<td align="center"><jsp:include page="${loginCheck }"></jsp:include></td>
+							<td align="center"><jsp:include page="./user/login.jsp"></jsp:include></td>
 						</tr>
 					</table>
 			</div>

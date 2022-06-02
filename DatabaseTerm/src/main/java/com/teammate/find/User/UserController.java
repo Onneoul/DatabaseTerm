@@ -43,7 +43,8 @@ public class UserController {
 	
 	@RequestMapping(value = "/github", method = RequestMethod.GET)
 	public String gitHubLogin(HttpServletRequest req, HttpServletResponse res) {
-		
+		System.out.println(req.getParameter("code"));
+
 		req.setAttribute("content", "/user/githubLoginTest.jsp");
 		return "index";
 	}
