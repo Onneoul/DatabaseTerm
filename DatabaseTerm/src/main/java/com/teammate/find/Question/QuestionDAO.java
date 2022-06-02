@@ -1,5 +1,8 @@
 package com.teammate.find.Question;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class QuestionDAO {
 	public void questioning() {
 		

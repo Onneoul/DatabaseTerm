@@ -8,7 +8,7 @@
     <body>
         <form action="event.create" method="post" name="eventCreateForm" onsubmit="return eventCreateCheck();" enctype="multipart/form-data">
             <input type="hidden" name="token" value="${token}">
-            <input type="hidden" name="eventUser" value="${sessionScope.loginUser.userLevel">
+            <input type="hidden" name="eventUser" value="${sessionScope.loginUser.userLevel}">
             <div>
                 <table>
                     <tr>

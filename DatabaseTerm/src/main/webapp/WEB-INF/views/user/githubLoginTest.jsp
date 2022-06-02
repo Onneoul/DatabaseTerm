@@ -7,8 +7,6 @@
 		<title></title>
 	</head>
 	<body>
-		<div>
-			<div></div>
-		</div>
+		깃허브 연동 성공
 	</body>
 </html>

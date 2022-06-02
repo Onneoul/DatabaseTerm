@@ -1,8 +1,10 @@
 function eventDetail(eventCode) {
-	location.href = "Find.Teammate.eventDetail?eventCode=" + eventCode;
+	location.href = "teammate.eventDetail?eventCode=" + eventCode;
 }
 
-
+function toEventList() {
+	location.href = "teammate.eventList";
+}
 
 function eventCreateCheck() {
 	var eventTitleInput = document.eventCreateForm.eventTitleInput;

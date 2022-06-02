@@ -2,10 +2,12 @@ package com.teammate.find.Project;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.teammate.find.User.User;
 import com.teammate.find.User.UserDAO;
 
+@Service
 public class ProjectDAO {
 	
 	@Autowired

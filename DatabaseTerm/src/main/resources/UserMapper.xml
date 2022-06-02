@@ -11,6 +11,10 @@
 		select * from user where userCode = #{userCode};
 	</select>
 	
+	<insert id="joinUser" parameterType="com.teammate.find.User.User">
+		insert into user ('#{userID}, ')
+	</insert>
+	
 	<update id="updateUserProfile" parameterType="com.teammate.find.User.User"></update>
 	
 	<delete id="deleteUserProfile" parameterType="com.teammate.find.User.User"></delete>

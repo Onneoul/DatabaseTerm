@@ -9,6 +9,9 @@
 		<link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/main.css">
         <link rel="stylesheet" type="text/css" href=" ${pageContext.request.contextPath}/resources/css/user.css">
         <script type="text/javascript" src="resources/js/siteMove.js"></script>
+        <script type="text/javascript" src="resources/js/user.js"></script>
+        <script type="text/javascript" src="resources/js/event.js"></script>
+        <script type="text/javascript" src="resources/js/project.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -22,7 +25,7 @@
 							<td><a href="">프로젝트 검색</a></td>
 						</tr>
 						<tr>
-							<td><a href=""></a></td>
+							<td onclick="toEventList()">이벤트 리스트로</td>
 						</tr>
 						<tr>
 							<td></td>
@@ -31,17 +34,14 @@
 			</div>
 				<div id="siteContent">
 					<table>
-						<tr><td align="center"><jsp:include page="../views/event/eventInsert.jsp"></jsp:include></td></tr>
+						<tr><td align="center"><jsp:include page="home.jsp"></jsp:include></td></tr>
 					</table>>
 				</div>
 			<div class="SideBar">
 					RightSide<br>
 					<table class="menu">
 						<tr>
-							<td><a href="유저 로그인"></a>로그인</td>
-						</tr>
-						<tr>
-							<td onclick="toProjectInsert()">프로젝트 작성</td>
+							<td align="center"><jsp:include page="${loginCheck }"></jsp:include></td>
 						</tr>
 					</table>
 			</div>

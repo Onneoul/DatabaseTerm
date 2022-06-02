@@ -1,5 +1,9 @@
 package com.teammate.find.User;
 
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +18,7 @@ public class UserController {
 	@Autowired
 	private UserDAO uDAO;
 	
-	@RequestMapping(value="user.profile.view", method=RequestMethod.GET)
+	@RequestMapping(value="user.profile.view", method=RequestMethod.POST)
 	public String projectView(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.viewProfile(u, req, res);
 		req.setAttribute("content", "/user/profile.jsp");
@@ -22,14 +26,14 @@ public class UserController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "user.login.go", method = RequestMethod.GET)
+	@RequestMapping(value = "user.login.go", method = RequestMethod.POST)
 	public String userLoginGo(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 		req.setAttribute("content", "/user/login.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value = "user.login", method = RequestMethod.GET)
+	@RequestMapping(value = "user.login", method = RequestMethod.POST)
 	public String userLogin(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.login(u, req, res);
 		uDAO.loginCheck(req, res);
@@ -37,7 +41,14 @@ public class UserController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "user.join.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/github", method = RequestMethod.GET)
+	public String gitHubLogin(HttpServletRequest req, HttpServletResponse res) {
+		
+		req.setAttribute("content", "/user/githubLoginTest.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "user.join.go", method = RequestMethod.POST)
 	public String toUserJoin(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 		uDAO.join(u, req, res);

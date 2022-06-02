@@ -6,9 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>
 	</head>
-	<body>
-		<div>
-			<div></div>
-		</div>
+	<body style="text-align=center">
+		<p>이벤트리스트</p>
 	</body>
 </html>
