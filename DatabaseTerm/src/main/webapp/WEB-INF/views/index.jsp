@@ -17,6 +17,7 @@
 		<div id="wrap">
 			<div class="SideBar">
 					왼쪽 탭<br>
+					<div><a href="/find">홈으로</a></div>
 					<table class="menu">
 						<tr>
 							<td onclick="toProjectView()">프로젝트 조회</td>
@@ -33,9 +34,7 @@
 					</table>
 			</div>
 				<div id="siteContent">
-					<table>
-						<tr><td align="center"><jsp:include page="home.jsp"></jsp:include></td></tr>
-					</table>>
+					<div align="center"><jsp:include page="${content }"></jsp:include></div>
 				</div>
 			<div class="SideBar">
 					RightSide<br>

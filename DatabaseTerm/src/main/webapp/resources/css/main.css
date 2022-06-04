@@ -11,12 +11,13 @@ td {
 
 a {
     text-decoration: none;
-    color: white;
 }
 
 #wrap {
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     background-color: yellow;
     text-align: center;
 }   
@@ -28,7 +29,6 @@ a {
     display: inline-block;
     white-space:nowrap;
     background-color: FFFFFF;
-    color: white;
     text-align: center;
 }
 
@@ -47,4 +47,23 @@ a {
 
 .menu {
     text-align: center;
+}
+
+<!-- event -->
+
+.eventWrap {
+	width: 100%;
+	margin-left: 10%;
+    margin-right: 10%;
+    background-color: aqua;
+    text-align: center;
+}
+.eventThumbnail {
+	width: 80%;
+	background-color: gray;
+	text-align: left;
+	border-bottom: 2px, solid, purple;
+}
+.eventPaging {
+	float: left;
 }

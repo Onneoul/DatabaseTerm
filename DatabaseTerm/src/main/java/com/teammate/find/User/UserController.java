@@ -40,19 +40,11 @@ public class UserController {
 		req.setAttribute("content", "home.jsp");
 		return "index";
 	}
-	
-	@RequestMapping(value = "/github", method = RequestMethod.GET)
-	public String gitHubLogin(HttpServletRequest req, HttpServletResponse res) {
-		System.out.println(req.getParameter("code"));
 
-		req.setAttribute("content", "/user/githubLoginTest.jsp");
-		return "index";
-	}
 	
 	@RequestMapping(value = "user.join.go", method = RequestMethod.POST)
 	public String toUserJoin(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
-		uDAO.join(u, req, res);
 		req.setAttribute("content", "/user/join.jsp");
 		return "index";
 	}

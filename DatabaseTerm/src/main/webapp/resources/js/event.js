@@ -1,9 +1,27 @@
-function eventDetail(eventCode) {
+function toEventDetail(eventCode) {
 	location.href = "teammate.eventDetail?eventCode=" + eventCode;
 }
 
 function toEventList() {
 	location.href = "teammate.eventList";
+}
+
+function toEventCreate() {
+	location.href = "teammate.toEventCreate";
+}
+
+function toEventUpdate(code) {
+	location.href = "teammate.toEventUpdate?code="+ code;
+}
+
+function toEventDelete(code) {
+	var ok = confirm("정말 이 글을 삭제하시겠습니까?");
+	if (ok) {
+		location.href = "teammate.eventDelete?code=" + code;
+		alert("삭제되었습니다.");
+	} else {
+		alert("삭제를 취소하셨습니다.");
+	}
 }
 
 function eventCreateCheck() {
@@ -21,15 +39,6 @@ function eventCreateCheck() {
 		alert("이벤트 내용을 입력해주세요.");
 		eventContentInput.value = "";
 		eventContentInput.focus();
-		return false;
-	} else if(isEmpty(eventLinkInput) || containsHS(eventLinkInput)) {
-		alert("이벤트 주소를 입력해주세요.");
-		eventLinkInput.value = "";
-		eventLinkInput.focus();
-		return false;
-	} else if(isEmpty(eventThumbnailInput) || (isNotType(eventThumbnailInput, "png") && isNotType(eventThumbnailInput, "jpg") 
-											&& isNotType(eventThumbnailInput, "gif") && isNotType(eventThumbnailInput, "bmp"))) {
-		alert("사진을 등록하세요.");
 		return false;
 	}
 	alert("이벤트 등록이 완료되었습니다.");
