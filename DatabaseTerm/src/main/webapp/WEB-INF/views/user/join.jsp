@@ -6,26 +6,19 @@
    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="user.create" method="post" name="userCreateForm" onsubmit="return userCreateCheck();">
+        <form action="user.join" method="post" name="userCreateForm" onsubmit="return userCreateCheck();">
             <div>
-                <table>
-                    <tr>
-                        <td> <input type="text" id="userIDInput" name="userID" autofocus placeholder="사용자 ID"> ID </td>
-                    </tr>
-                    <tr>
-                        <td> <input type="textarea" id="userPasswordInput" name="userPassword" placeholder="비밀번호"> 비밀번호 </td>
-                    </tr>
-                    <tr>
-                        <td> <input type="text" id="userEMailInput" name="userEMail" placeholder="이메일"> EMail </td>
-                    </tr>
-                    <tr>
-                        <td> <input type="text" id="GithubIDInput" name="GithubID"> GithubID </td>
-                    </tr>
-                    <tr>
-                        <td> <input type="submit"> 제출 </td>
-                        <td> <button type="submit" id="button1" onclick="userJoin();" value="전송"></button> </td>
-                    </tr>
-                </table>
+            	<div>
+                    <input type="text" id="userIDInput" name="id" value="${loginGitId }">
+					<input type="text" id="userNameInput" name="name" value="${loginGitName }" >
+					<input type="text" id="userLink" name="githubLink" value="${loginGitLink }">
+                </div>
+                
+              		<input type="text" id="userPasswordInput" name="password" placeholder="비밀번호"> 비밀번호 <br>
+                    <input type="text" id="userEMailInput" name="eMail" placeholder="이메일"> EMail <br>
+                  	
+                    <button type="submit" id="button1" value="전송">전송</button>
+                   
             </div>
         </form>
     </body>

@@ -25,10 +25,10 @@ function toEventDelete(code) {
 }
 
 function eventCreateCheck() {
-	var eventTitleInput = document.eventCreateForm.eventTitleInput;
-	var eventContentInput = document.eventCreateForm.eventContentInput;
-	var eventThumbnailInput = document.eventCreateForm.eventThumbnailInput;
-	var eventLinkInput = document.eventCreateForm.eventLinkInput;
+	var eventTitleInput = document.eventCreateForm.title;
+	var eventContentInput = document.eventCreateForm.content;
+	var eventLinkInput = document.eventCreateForm.link;
+	var startDateInput = document.eventCreateForm.startDate;
 
 	if(isEmpty(eventTitleInputInput) || containsHS(eventTitleInputInput)) {
 		alert("이벤트 제목을 입력해주세요.");
@@ -39,6 +39,9 @@ function eventCreateCheck() {
 		alert("이벤트 내용을 입력해주세요.");
 		eventContentInput.value = "";
 		eventContentInput.focus();
+		return false;
+	} else if(isEmpty(startDateInput) || containsHS(eventContentInput)) {
+		alert("시작 날짜를 입력해주세요.");
 		return false;
 	}
 	alert("이벤트 등록이 완료되었습니다.");

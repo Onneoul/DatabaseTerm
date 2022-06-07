@@ -8,7 +8,10 @@
 	</head>
 	<body>
 		<div>
-			<div></div>
+			<div id="loginUserID">${sessionScope.loginUser.id }</div><br>
+			<div id="loginUserName"><span>${sessionScope.loginUser.name }</span></div><br>
+			<div onclick="logout();">로그아웃</div><br>
+			<div>ForEach문으로 진행중인 프로젝트~</div><br>
 		</div>
 	</body>
 </html>

@@ -9,7 +9,7 @@
     	<div id="eventCreateFromArea">
 	        <form action="event.create" method="post" name="eventCreateForm" onsubmit="return eventCreateCheck();">
 	            <input type="hidden" name="token" value="${token}">
-	            <input type="hiddne" name="code" value="${code }">
+	            <input type="hidden" name="code" value="${code }">
 	            <div>
 	                <table style="text-align: center">
 	                    <tr>

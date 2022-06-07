@@ -14,13 +14,13 @@
 	            <div>
 	                <table style="text-align: center">
 	                    <tr>
-	                        <td> <input type="text" class="input" name="title" autofocus placeholder="${eventDetail.title }" maxlength="45"></td>
+	                        <td> <input type="text" class="input" name="title" autofocus value="${eventDetail.title }" maxlength="45"></td>
 	                    </tr>
 	                    <tr>
-	                        <td> <input type="text" class="input" name="content" placeholder="${eventDetail.content }"></td>
+	                        <td> <input type="text" class="input" name="content" value="${eventDetail.content }"></td>
 	                    </tr>
 	                    <tr>
-	                        <td> <input type="text" class="input" name="link" placeholder="${eventDetail.link }"></td>
+	                        <td> <input type="text" class="input" name="link" value="${eventDetail.link }"></td>
 	                    </tr>
 	                    <tr>
 	                    	<td><input type="date" class="dateInput" name="startDate" value="${eventDetail.startDate }"></td>

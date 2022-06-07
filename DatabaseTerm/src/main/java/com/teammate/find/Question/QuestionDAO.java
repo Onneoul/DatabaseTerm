@@ -39,6 +39,8 @@ public class QuestionDAO {
 		
 	}
 	
+	
+	// CreateQuestion 할 때 테크 코드를 받는다. list<Tech>를 받아서 Foreach문을 통해 QuestionTech 테이블에 Insert 하면 될듯?
 	public void createQuestion(Question e, HttpServletRequest req, HttpServletResponse res) {
 
 		Date d = new Date();

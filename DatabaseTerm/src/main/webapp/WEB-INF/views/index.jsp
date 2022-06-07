@@ -12,6 +12,8 @@
         <script type="text/javascript" src="resources/js/user.js"></script>
         <script type="text/javascript" src="resources/js/event.js"></script>
         <script type="text/javascript" src="resources/js/project.js"></script>
+        <script type="text/javascript" src="resources/js/question.js"></script>
+        <script type="text/javascript" src="resources/js/github.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -40,7 +42,7 @@
 					RightSide<br>
 					<table class="menu">
 						<tr>
-							<td align="center"><jsp:include page="./user/login.jsp"></jsp:include></td>
+							<td align="center"><jsp:include page="${loginPage }"></jsp:include></td>
 						</tr>
 					</table>
 			</div>

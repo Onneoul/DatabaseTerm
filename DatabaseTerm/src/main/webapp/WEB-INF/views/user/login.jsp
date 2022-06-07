@@ -10,13 +10,12 @@
 	<body>
 		<form action="user.login" method="post" id="userLogin" name="userLoginForm" onsubmit="return userLoginCheck();">
 			<div>
-				<div><input class="input" name="userId" placeholder="아이디"></div><br>
-				<div><input class="input" name="userpw" placeholder="비밀번호" autocomplete="name"></div><br>
-				<div><button type="submit" id="button1" onclick="login();" value="로그인"></button>로그인</div><br>
-				<div><button type="submit" id="toUserJoin" onclick="toUserJoin();" value="회원 가입">회원 가입</button></div><br>
+				<div><input class="input" name="id" placeholder="아이디"></div><br>
+				<div><input class="input" name="password" placeholder="비밀번호" autocomplete="name"></div><br>
+				<div><button type="submit" id="button1" value="로그인">로그인</button></div><br>
+				<p onclick="getToken();">GitHub 아이디로 로그인</p>
 			</div>
-			
-			<p onclick="getToken();">GitHub 아이디로 로그인</p>
 		</form>
+			<div><button id="toUserJoin" onclick="toUserJoin();" value="회원 가입">회원 가입</button></div>
 	</body>
 </html>

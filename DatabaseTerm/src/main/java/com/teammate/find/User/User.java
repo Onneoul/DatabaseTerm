@@ -1,37 +1,59 @@
 package com.teammate.find.User;
 
 public class User {
-	private int userCode;
-	private String userId;
-	private String userPw;
-	private String userName;
-	private String githubId;
-	private String eMail;
+	private int code;
+	private String id;
+	private String password;
+	private String email;
+	private String name;
+	private String githubLink;
 	
 	public User() {
 		
 	}
 	
-	public User(int userCode, String userId, String userPw, String userName, String githubId, String eMail) {
+	public User(int code, String id, String password, String eMail, String name, String githubLink) {
 		super();
-		this.userCode = userCode;
-		this.userId = userId;
-		this.userPw = userPw;
-		this.userName = userName;
-		this.githubId = githubId;
-		this.eMail = eMail;
+		this.code = code;
+		this.id = id;
+		this.password = password;
+		this.email = eMail;
+		this.name = name;
+		this.githubLink = githubLink;
+	}
+
+	public int getCode() {
+		return code;
+	}
+	public String getId() {
+		return id;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String geteMail() {
+		return email;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getGithubLink() {
+		return githubLink;
 	}
 	
-	public String getuserId() {return userId; }
-	public String getuserPw() {return userPw; }
-	public String getuserName() {return userName; }
-	public String getgithubId() {return githubId; }
-	public String geteMail() {return eMail; }
-	public int getUserCode() {return userCode; }
-	
-	public void setuserId (String userId) {this.userId = userId; }
-	public void setuserPw (String userPw) {this.userPw = userPw; }
-	public void setuserName (String userName) {this.userName = userName; }
-	public void setgithubId (String githubId) {this.githubId = githubId; }
-	public void seteMail (String eMail) {this.eMail = eMail; }
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void seteMail(String eMail) {
+		this.email = eMail;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setGithubLink(String githubLink) {
+		this.githubLink = githubLink;
+	}
 }

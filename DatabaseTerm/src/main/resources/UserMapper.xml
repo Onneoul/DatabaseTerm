@@ -2,22 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.teammate.find.User.UserMapper">
 	<select id="viewUserProfile" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
-		
+		select * from User where Code = #{code}
 	</select>
 	<select id="getUserLevel" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
-		select userLevel from user where userCode = #{userCode}
+		select userLevel from user where Code = #{Code}
 	</select>
 	<select id="getUserbyCode" parameterType="int" resultType="com.teammate.find.User.User">
-		select * from user where userCode = #{userCode};
+		select * from user where Code = #{Code};
+	</select>
+	<select id="userLogin" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
+		select * from user where id = #{id}
+	</select>
+	<select id="userJoinCheck" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
+		select * from user where id = #{id}
 	</select>
 	
 	<insert id="joinUser" parameterType="com.teammate.find.User.User">
-		insert into user ('#{userID}, ')
+		insert into user (id, password, email, name, githubLink) values (#{id}, #{password}, #{email}, #{name}, #{githubLink})
 	</insert>
 	
-	<update id="updateUserProfile" parameterType="com.teammate.find.User.User"></update>
+	<update id="updateUser" parameterType="com.teammate.find.User.User">
+		update user set password = #{password}, email = #{email}
+	</update>
 	
-	<delete id="deleteUserProfile" parameterType="com.teammate.find.User.User"></delete>
+	<delete id="deleteUser" parameterType="com.teammate.find.User.User">
+		delete from user where code = #{code}
+	</delete>
 	
 	
 </mapper>

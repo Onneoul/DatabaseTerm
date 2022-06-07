@@ -7,5 +7,13 @@ function toUserJoin () {
 }
 
 function userJoin () {
+	location.href = "user.join"
+}
 
+function logout () {
+	location.href = "user.logout";
+}
+
+function getUserAccess() {
+	
 }

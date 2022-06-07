@@ -10,7 +10,7 @@
             <div id="siteProfile">
                 <table class="profile">
                     <tr>
-                        <td>UserID</td>
+                        <td>${ }</td>
                         <td>추천수</td>
                     </tr>
                     <tr>
@@ -25,16 +25,8 @@
                 </table>
             </div>
             <div id="githubProfile">
-                <table id="profile">
-                    <tr>
-                        <td onclick="seeUserProfile(userNumber);"> Github프로필 </td>
-                        <td>ID</td>
-                    </tr>
-                    <tr colspan="2"> <!-- jsp로 반복문 써서 project 전부 뽑기 (DB에 저장되있어야겠지??) -->
-                        <td>프로젝트1</td> <!-- onclick 메소드로 클릭시 해당 프로젝트 주소로 이동하기 -->
-                        <td>프로젝트2</td>
-                    </tr>
-                </table>
+            	<div>${githubLink }</div><br>
+                <div></div>
             </div>
         </div>
     </body>
