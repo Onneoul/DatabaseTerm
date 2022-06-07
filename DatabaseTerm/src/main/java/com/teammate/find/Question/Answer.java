@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Answer {
 	private int questionCode;
-	private int code;
+	private int answerCode;
 	private int writer;
 	private String content;
 	private Date date;
@@ -14,10 +14,10 @@ public class Answer {
 		
 	}
 	
-	public Answer(int questionCode, int code, int writer, String content, Date date, int recommendation) {
+	public Answer(int questionCode, int answerCode, int writer, String content, Date date, int recommendation) {
 		super();
 		this.questionCode = questionCode;
-		this.code = code;
+		this.answerCode = answerCode;
 		this.writer = writer;
 		this.content = content;
 		this.date = date;
@@ -39,8 +39,8 @@ public class Answer {
 	public int getRecommendation() {
 		return recommendation;
 	}
-	public int getCode() {
-		return code;
+	public int getAnswerCode() {
+		return answerCode;
 	}
 	
 	
@@ -59,7 +59,7 @@ public class Answer {
 	public void setRecommendation(int recommendation) {
 		this.recommendation = recommendation;
 	}
-	public void setCode(int code) {
-		this.code = code;
+	public void setAnswerCode(int answerCode) {
+		this.answerCode = answerCode;
 	}
 }

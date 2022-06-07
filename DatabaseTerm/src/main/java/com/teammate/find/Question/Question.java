@@ -10,7 +10,6 @@ public class Question {
 	private int writer;
 	private Date date;
 	
-	private int techCode;
 	private List<Tech> techs;
 	private List<Answer> answers;
 	

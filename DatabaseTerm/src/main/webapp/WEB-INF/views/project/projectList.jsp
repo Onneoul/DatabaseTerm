@@ -27,7 +27,7 @@
 				</c:forEach>
 			</div>
 			<div id="">
-				<c:forEach var="feedBack" items="${answers }">
+				<c:forEach var="feedBack" items="${feedBacks }">
 					<div class="projectFeedback">${ }</div>
 				</c:forEach>
 			</div>
