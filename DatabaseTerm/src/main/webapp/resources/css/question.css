@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+#questionDetailTechsArea {
+	width: 80%;
+}
+
+#questionContainer {
+	margin-top: 10%;
+	display: grid;
+	grid-template-areas:
+	"questionArea"
+	"answerArea"
+	"answerWriteArea";
+}
+
+#questionArea {
+	display: grid;
+	grid-template-areas:
+	"title buttonArea"
+	"content content"
+	"tagarea tagarea";
+	
+	grid-area: questionArea;
+	<!-- 컬럼 하나, 로우 3개 -->
+}
+#questionDetailTitle {
+	display: grid;
+	gird-area: title;
+}
+#buttonArea {
+	display: grid;
+	grid-area: buttonArea;
+	grid-template-areas:
+	"update delete";
+}
+#updateButton {
+	grid-area: update;
+	width: 30%;
+	float: right;
+}
+#deleteButton {
+	grid-area: delete;
+	width: 30%;
+	float: right;
+}
+
+#questionDetailContent {
+	display: grid;
+	grid-area: content;
+}
+#questionDetailTechsArea {
+	display: grid;
+	grid-area: tagarea;
+}
+
+.techTags {
+	width: 10%;
+	float: left;
+}
+
+#answerArea {
+	margin-top: 10%; 
+	grid-area: answerArea;
+}
+
+.answers {
+	display: grid;
+	margin-top: 5%;
+	grid-template-areas:
+	"writer date recommend"
+	"content content content";
+}
+
+.answerWriter {
+	margin-top: 5%;
+	grid-area: writer;
+}
+
+.answerDate {
+	gird-area: date;
+}
+
+.answerContent {
+	grid-area: content;
+}
+
+.answerRecommend {
+	grid-area: recommend;
+}
+
+#answerWriteArea {
+	display: grid;
+	grid-area: answerWriteArea;
+}

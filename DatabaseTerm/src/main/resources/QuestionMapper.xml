@@ -1,3 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.teammate.find.Question.QuestionMapper"></mapper>
+<mapper namespace="com.teammate.find.Question.QuestionMapper">
+	<select id="getQuestionDetail" parameterType="com.teammate.find.Question.Question" resultType="com.teammate.find.Question.Question">
+		select * from question where code = #{code}
+	</select>
+	<select id="viewQuestion" parameterType="com.teammate.find.Question.QuestionSelector" resultType="com.teammate.find.Question.Question">
+		select * from (
+			select @rn := @rn +1 as rn, code, title, content, reportDate, Writer from (
+				select * from question where title like "%"#{search}"%" or content like "%"#{search}"%" order by code desc
+			)questionSearch, (select @rn:=0)rn
+		)questionOrder
+	</select>
+	<select id="getQuestionAnswers" parameterType="com.teammate.find.Question.Question" resultType="com.teammate.find.Question.Answer">
+		select * from Answer where QuestionCode = #{code}
+	</select>
+	<select id="getQuestionTechs" parameterType="com.teammate.find.Question.Question" resultType="com.teammate.find.Question.QuestionTech">
+		select qt.questioncode, qt.techcode, t.techname from tech t inner join questiontech qt on qt.techcode = t.code where qt.questionCode = #{code};
+	</select>
+	
+	<select id="getQuestionCount" parameterType="com.teammate.find.Question.QuestionSelector" resultType="java.lang.Integer">
+		select count(*) from question where title like'%'#{search}'%' or content like '%'#{search}'%'
+	</select>
+
+	<insert id="createQuestion" parameterType="com.teammate.find.Question.Question">
+		insert into Question (title, Content, Writer, ReportDate) values (#{title}, #{content}, #{writer}, #{reportDate})
+	</insert>
+	<insert id="createAnswer" parameterType="com.teammate.find.Question.Answer">
+		insert into answer (questionCode, writer, content, WriteDate) values (#{questionCode}, #{writer}, #{content}, #{date})
+	</insert>
+	<update id="updateQuestion" parameterType="com.teammate.find.Question.Question">
+		update Question set title = #{title}, content = #{content}, reportDate = #{reportDate} where code = #{code}
+	</update>
+	<update id="updateAnswer" parameterType="com.teammate.find.Question.Answer">
+	
+	</update>
+
+	<delete id="deleteQuestion" parameterType="com.teammate.find.Question.Question">
+		delete from question where code = #{code}
+	</delete>
+	<delete id="deleteAnswer" parameterType="com.teammate.find.Question.Answer">
+	
+	</delete>
+
+</mapper>

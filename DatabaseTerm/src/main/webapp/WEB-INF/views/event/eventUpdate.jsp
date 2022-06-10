@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType = "text/html;charset=utf-8" %>
-<%@ page session="false" %>
 <html>
     <head>
    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +13,10 @@
 	            <div>
 	                <table style="text-align: center">
 	                    <tr>
-	                        <td> <input type="text" class="input" name="title" autofocus value="${eventDetail.title }" maxlength="45"></td>
+	                        <td> <input type="text" class="inputTitle" name="title" autofocus value="${eventDetail.title }" maxlength="45"></td>
 	                    </tr>
 	                    <tr>
-	                        <td> <input type="text" class="input" name="content" value="${eventDetail.content }"></td>
+	                        <td> <input type="text" class="inputContent" name="content" value="${eventDetail.content }"></td>
 	                    </tr>
 	                    <tr>
 	                        <td> <input type="text" class="input" name="link" value="${eventDetail.link }"></td>
@@ -27,7 +26,7 @@
 	                    	<td><input type="date" class="dateInput" name="endDate" value="${eventDetail.endDate }"></td>
 	                    </tr>
 	                    <tr>
-	                        <td> <button type="submit" id="button1" onclick="eventUpdate();" value="전송">수정 완료</button> </td>
+	                        <td> <button type="submit" id="button1" value="전송">수정 완료</button> </td>
 	                    </tr>
 	                </table>
 	            </div>

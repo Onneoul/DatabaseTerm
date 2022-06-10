@@ -5,27 +5,33 @@ import java.util.List;
 import com.teammate.find.Tech.Tech;
 
 public class Question {
+	private int code;
 	private String title;
 	private String content;
 	private int writer;
-	private Date date;
+	private String reportDate;
 	
-	private List<Tech> techs;
+	private List<QuestionTech> questionTechs;
 	private List<Answer> answers;
 	
 	public Question() {
 		
 	}
 	
-	public Question(String title, String content, int writer, Date date, List<Tech> techs, List<Answer> answers) {
+	public Question(int code, String title, String content, int writer, String reportDate, List<QuestionTech> questionTechs, List<Answer> answers) {
+		super();
+		this.code = code;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
-		this.date = date;
-		this.techs = techs;
+		this.reportDate = reportDate;
+		this.questionTechs = questionTechs;
 		this.answers = answers;
 	}
 	
+	public int getCode() {
+		return code;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -35,17 +41,20 @@ public class Question {
 	public int getWriter() {
 		return writer;
 	}
-	public Date getDate() {
-		return date;
+	public String getReportDate() {
+		return reportDate;
 	}
-	public List<Tech> getTechs() {
-		return techs;
+	public List<QuestionTech> getQuestionTechs() {
+		return questionTechs;
 	}
 	public List<Answer> getAnswers() {
 		return answers;
 	}
 	
 	
+	public void setCode(int code) {
+		this.code = code;
+	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -55,11 +64,11 @@ public class Question {
 	public void setWriter(int writer) {
 		this.writer = writer;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setReportDate(String reportDate) {
+		this.reportDate = reportDate;
 	}
-	public void setTechs(List<Tech> techs) {
-		this.techs = techs;
+	public void setQuestionTechs(List<QuestionTech> questionTechs) {
+		this.questionTechs = questionTechs;
 	}
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;

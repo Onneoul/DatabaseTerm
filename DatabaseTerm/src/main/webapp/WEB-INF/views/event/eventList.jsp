@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType = "text/html;charset=utf-8" %>
-<%@ page session="false" %>
 <html>
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +37,7 @@
 						<td>시작 일자: ${eS.startDate }</td>
 						<td>종료 일자: ${eS.endDate }</td>
 					</tr>
-					<c:if test="${sessionScope.loginUser.userLevel} >= 1">
+					<c:if test="${sessionScope.loginUser.userLevel} >= 2">
 						<tr>
 							<td onclick="toEventUpdate(${eS.code});">수정</td>
 							<td onclick="toEventDelete(${eS.code});">삭제</td>

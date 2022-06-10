@@ -1,5 +1,5 @@
-function seeUserProfile (userNumber) {
-    location.href = "user.profile.view?userNumber=" + userNumber;
+function toUserDetail (code) {
+    location.href = "user.detail.view?userCode=" + code;
 }
 
 function toUserJoin () {
@@ -16,4 +16,8 @@ function logout () {
 
 function getUserAccess() {
 	
+}
+
+function toUserUpdate(code) {
+	location.href = "toUserUpdate?code" + code;
 }

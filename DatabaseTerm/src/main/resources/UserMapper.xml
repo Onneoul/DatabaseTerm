@@ -5,16 +5,24 @@
 		select * from User where Code = #{code}
 	</select>
 	<select id="getUserLevel" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
-		select userLevel from user where Code = #{Code}
+		select userLevel from user where Code = #{code}
 	</select>
 	<select id="getUserbyCode" parameterType="int" resultType="com.teammate.find.User.User">
-		select * from user where Code = #{Code};
+		select * from user where Code = #{code};
 	</select>
 	<select id="userLogin" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
 		select * from user where id = #{id}
 	</select>
 	<select id="userJoinCheck" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
 		select * from user where id = #{id}
+	</select>
+	
+	<select id="getUserTechs" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.UserTech">
+		select ut.techcode, t.techname, ut.level from tech t inner join usertech ut on t.code = ut.techcode where t.code = any(select techcode from usertech where usercode = #{code})
+	</select>
+	<select id="getUserProjects" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.Project.Project">
+		select p.code, p.title, p.status from project p inner join promoteproject pt on p.code = pt.projectcode 
+			where pt.usercode = any(select usercode from promoteproject where usercode = #{code})
 	</select>
 	
 	<insert id="joinUser" parameterType="com.teammate.find.User.User">

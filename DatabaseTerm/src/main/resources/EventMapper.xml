@@ -6,7 +6,7 @@
 	<select id="viewEvent" parameterType="com.teammate.find.Event.EventSelector" resultType="com.teammate.find.Event.Event">
 		select * from (
 			select @rn := @rn +1 as rn, code, title, content, link, startDate, endDate from (
-				select * from event where title like '%%' order by code desc
+				select * from event where title like "%"#{search}"%" order by code desc
 			)eventSearch, (select @rn:=0)rn
 		)eventorder
 		where rn &gt;= #{start} and rn &lt;= #{end};

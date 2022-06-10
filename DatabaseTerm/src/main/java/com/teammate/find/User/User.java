@@ -1,5 +1,10 @@
 package com.teammate.find.User;
 
+import java.util.List;
+
+import com.teammate.find.Project.Project;
+import com.teammate.find.User.UserTech;
+
 public class User {
 	private int code;
 	private String id;
@@ -7,19 +12,26 @@ public class User {
 	private String email;
 	private String name;
 	private String githubLink;
+	private int userLevel;
+	
+	private List<Project> projects;
+	private List<UserTech> userTechs;
 	
 	public User() {
 		
 	}
 	
-	public User(int code, String id, String password, String eMail, String name, String githubLink) {
+	public User(int code, String id, String password, String email, String name, String githubLink, int userLevel, List<Project> projects, List<UserTech> userTechs) {
 		super();
 		this.code = code;
 		this.id = id;
 		this.password = password;
-		this.email = eMail;
+		this.email = email;
 		this.name = name;
 		this.githubLink = githubLink;
+		this.userLevel = userLevel;
+		this.projects = projects;
+		this.userTechs = userTechs;
 	}
 
 	public int getCode() {
@@ -31,7 +43,7 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-	public String geteMail() {
+	public String getEmail() {
 		return email;
 	}
 	public String getName() {
@@ -40,7 +52,19 @@ public class User {
 	public String getGithubLink() {
 		return githubLink;
 	}
+	public int getUserLevel() {
+		return userLevel;
+	}
+	public List<Project> getProjects() {
+		return projects;
+	}
+	public List<UserTech> getUserTechs() {
+		return userTechs;
+	}
 	
+	public void setCode(int code) {
+		this.code = code;
+	}
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -56,4 +80,14 @@ public class User {
 	public void setGithubLink(String githubLink) {
 		this.githubLink = githubLink;
 	}
+	public void setUserLevel(int userLevel) {
+		this.userLevel = userLevel;
+	}
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+	public void setUserTechs(List<UserTech> userTechs) {
+		this.userTechs = userTechs;
+	}
+	
 }

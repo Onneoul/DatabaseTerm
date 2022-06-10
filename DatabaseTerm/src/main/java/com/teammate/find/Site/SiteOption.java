@@ -25,7 +25,7 @@ public class SiteOption {
 	
 	public SiteOption(int eventPerPage) {
 		super();
-		eventPerPage = eventPerPage;
+		this.eventPerPage = eventPerPage;
 	}
 	
 	public static void clearSearch(HttpServletRequest req, HttpServletResponse res) {

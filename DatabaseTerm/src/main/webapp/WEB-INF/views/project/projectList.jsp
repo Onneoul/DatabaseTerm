@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType = "text/html;charset=utf-8" %>
-<%@ page session="false" %>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +27,8 @@
 			</div>
 			<div id="">
 				<c:forEach var="feedBack" items="${feedBacks }">
-					<div class="projectFeedback">${ }</div>
+					<div class="projectFeedback">${content }</div>
+					<div class="projectFeedback">${writeDate }</div>
 				</c:forEach>
 			</div>
 		</div>

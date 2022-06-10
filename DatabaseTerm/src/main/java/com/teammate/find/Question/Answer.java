@@ -7,14 +7,14 @@ public class Answer {
 	private int answerCode;
 	private int writer;
 	private String content;
-	private Date date;
+	private String date;
 	private int recommendation;
 	
 	public Answer() {
 		
 	}
 	
-	public Answer(int questionCode, int answerCode, int writer, String content, Date date, int recommendation) {
+	public Answer(int questionCode, int answerCode, int writer, String content, String date, int recommendation) {
 		super();
 		this.questionCode = questionCode;
 		this.answerCode = answerCode;
@@ -33,7 +33,7 @@ public class Answer {
 	public String getContent() {
 		return content;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	public int getRecommendation() {
@@ -53,7 +53,7 @@ public class Answer {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public void setRecommendation(int recommendation) {

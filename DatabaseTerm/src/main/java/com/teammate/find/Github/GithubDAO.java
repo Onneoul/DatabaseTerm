@@ -50,8 +50,8 @@ public class GithubDAO {
 	public String getGitAccessToken(HttpServletRequest req, HttpServletResponse res) {
 
 		try {
+			
 			String code = req.getParameter("code");
-//			System.out.println(code); //코드 출력
 			
 			MultiValueMap<String, String> multi = new LinkedMultiValueMap<>();
 			multi.add("client_id", "9560c4b82e839019b0eb");
@@ -62,7 +62,7 @@ public class GithubDAO {
 			
 
 			String a = UriComponentsBuilder.fromUriString(url).queryParams(multi).build().encode().toString();
-			System.out.println("a = " + a);
+//			System.out.println("a = " + a);
 			
 			HttpHeaders headers = new HttpHeaders();
 			HttpEntity<MultiValueMap<String, String>> gitReq = new HttpEntity<>(multi, headers);
@@ -72,20 +72,18 @@ public class GithubDAO {
 			
 			String gitHubBody = result.getBody();
 			String[] gitAccessToken = gitHubBody.split("=|&");
+//			
+//			System.out.println("result = " + result);
+//			System.out.printf("getBody = %s"  , result.getBody());
 			
-			System.out.println("result = " + result);
-			System.out.printf("getBody = %s"  , result.getBody());
-			for (int i = 0; i < gitAccessToken.length; i++) {
-				System.out.printf("Split %d Result = %s\n" , i, gitAccessToken[i]);
-				
+			
 			return gitAccessToken[1];
 			
-			}
+			
 		} catch (Exception err) {
 			err.printStackTrace();
 			return "error";
 		}
-		return null;
 	}
 
 
@@ -119,8 +117,8 @@ public class GithubDAO {
 			Object obj = parser.parse(str1);
 			JSONObject jobj = (JSONObject) obj;
 			
-			System.out.println(jobj.get("login"));
-			System.out.println(jobj.get("name"));
+//			System.out.println(jobj.get("login"));
+//			System.out.println(jobj.get("name"));
 			
 			req.setAttribute("loginGitId" ,jobj.get("login"));
 			req.setAttribute("loginGitName", jobj.get("name"));

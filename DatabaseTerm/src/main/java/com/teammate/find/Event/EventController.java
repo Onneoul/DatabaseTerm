@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.teammate.find.TokenMaker;
 import com.teammate.find.Site.SiteOption;
+import com.teammate.find.User.User;
 import com.teammate.find.User.UserDAO;
 
 @Controller
@@ -38,6 +39,9 @@ public class EventController {
 		String now = sdf.format(d);
 		req.setAttribute("now", now);
 		
+		uDAO.loginCheck(req, res);
+
+		
 		req.setAttribute("content", "./event/eventCreate.jsp");
 		return "index";
 	}
@@ -45,9 +49,11 @@ public class EventController {
 	public String eventCreate(Event e, HttpServletRequest req, HttpServletResponse res) {
 	
 		TokenMaker.make(req, res);
-//		uDAO.loginCheck(req, res);
+		uDAO.loginCheck(req, res);
 		eDAO.createEvent(e, req, res);
 		eDAO.viewEvent(1, req, res);
+		
+		
 		req.setAttribute("content", "./event/eventList.jsp");
 		return "index";
 	}
@@ -57,7 +63,7 @@ public class EventController {
 	@RequestMapping(value = "teammate.eventList", method = RequestMethod.GET)
 	public String eventList(HttpServletRequest req, HttpServletResponse res) {
 		
-//		uDAO.loginCheck(req, res);
+		uDAO.loginCheck(req, res);
 		SiteOption.clearSearch(req, res);
 		SiteOption.clearSearchDate(req, res);
 		eDAO.viewEvent(1, req, res);
@@ -68,6 +74,7 @@ public class EventController {
 	@RequestMapping(value = "teammate.eventDetail", method = RequestMethod.GET)
 	public String viewEventDetail (HttpServletRequest req, HttpServletResponse res) {
 		
+		uDAO.loginCheck(req, res);
 		int eventCode = Integer.parseInt(req.getParameter("eventCode"));
 		eDAO.viewEventDetail(eventCode, req, res);
 		
@@ -78,7 +85,8 @@ public class EventController {
 	public String eventPageChange(HttpServletRequest req, HttpServletResponse res) {
 		TokenMaker.make(req, res);
 		int page = Integer.parseInt(req.getParameter("page"));
-//		uDAO.loginCheck(req, res);
+		
+		uDAO.loginCheck(req, res);
 		eDAO.viewEvent(page, req, res);
 		
 		req.setAttribute("content", "./event/eventList.jsp");
@@ -90,7 +98,8 @@ public class EventController {
 	@RequestMapping(value = "teammate.toEventUpdate", method = RequestMethod.GET)
 	public String toEventUpdate (Event e, HttpServletRequest req, HttpServletResponse res) {
 		TokenMaker.make(req, res);
-//		if (uDAO.loginCheck(req, res)) {
+		uDAO.loginCheck(req, res);
+		
 		int code = Integer.parseInt(req.getParameter("code"));
 		eDAO.viewEventDetail(code, req, res);
 		
@@ -99,7 +108,8 @@ public class EventController {
 	}
 	@RequestMapping(value = "teammate.eventUpdate", method = RequestMethod.POST)
 	public String eventUpdate(Event e, HttpServletRequest req, HttpServletResponse res) {
-	
+		uDAO.loginCheck(req, res);
+		
 		eDAO.updateEvent(e, req, res);
 		eDAO.viewEventDetail(e.getCode().intValue(), req, res);
 		req.setAttribute("content", "./event/eventDetail.jsp");
@@ -109,6 +119,7 @@ public class EventController {
 	// Delete Part
 	@RequestMapping(value = "teammate.eventDelete", method = RequestMethod.GET)
 	public String eventDelete(Event e, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
 		int code = Integer.parseInt(req.getParameter("code"));
 		e.setCode(new BigDecimal(code));
 		eDAO.deleteEvent(e, req, res);

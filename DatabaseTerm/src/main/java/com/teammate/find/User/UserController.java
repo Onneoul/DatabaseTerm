@@ -23,9 +23,11 @@ public class UserController {
 	@Autowired
 	private UserDAO uDAO;
 	
-	@RequestMapping(value="user.detail", method=RequestMethod.POST)
+	@RequestMapping(value="user.detail.view", method=RequestMethod.GET)
 	public String projectView(User u, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
 		
+		u.setCode(Integer.parseInt(req.getParameter("userCode")));
 		uDAO.viewProfile(u, req, res);
 		
 		req.setAttribute("content", "./user/profile.jsp");
@@ -35,6 +37,7 @@ public class UserController {
 	@RequestMapping(value = "user.login.go", method = RequestMethod.POST)
 	public String userLoginGo(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
+		req.getSession().setAttribute("sessionTest", "TestValue");
 		req.setAttribute("content", "./user/login.jsp");
 		return "index";
 	}
@@ -42,9 +45,9 @@ public class UserController {
 	public String userLogin(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.login(u, req, res);
 		uDAO.loginCheck(req, res);
-		System.out.println(req.getSession().getAttribute("loginUser"));
 		
 		req.setAttribute("content", "home.jsp");
+		
 		return "index";
 	}
 	@RequestMapping(value = "user.logout", method = RequestMethod.GET)
@@ -53,6 +56,7 @@ public class UserController {
 			uDAO.logout(req, res);
 			req.setAttribute("loginPage", "./user/login.jsp");
 		}
+		req.setAttribute("content", "home.jsp");
 		return "index";
 	}
 
@@ -61,7 +65,6 @@ public class UserController {
 	public String toUserJoin(User u, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 		gDAO.getUser(gDAO.getGitAccessToken(req, res), req, res);
-		System.out.println(req.getAttribute("loginUserID"));
 		req.setAttribute("content", "./user/join.jsp");
 		return "index";
 	}
@@ -70,12 +73,16 @@ public class UserController {
 		
 		uDAO.join(u, req, res);
 		uDAO.loginCheck(req, res);
-		
 		req.setAttribute("content", "home.jsp");
 		return "index";
 	}
 	
-	
+	@RequestMapping(value = "toUserUpdate", method = RequestMethod.GET)
+	public String toUserUpdate (HttpServletRequest req, HttpServletResponse res) {
+
+		req.setAttribute("content", " .jsp");
+		return "index";
+	}
 	
 	
 }

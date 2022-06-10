@@ -39,8 +39,8 @@
 			</table>
 			<div>
 				<a href="teammate.toEventUpdate?code=${eventDetail.code }"></a>
-				<p onclick="toEventUpdate(${eventDetail.code});">수정</p><br>
-				<p onclick="toEventDelete(${eventDetail.code});">삭제</p>
+				<p onclick="toEventUpdate(${eventDetail.code});" class="SiteButton">수정</p><br>
+				<p onclick="toEventDelete(${eventDetail.code});" class="SiteButton">삭제</p>
 			</div>
 		</div>
 	</body>

@@ -1,7 +1,6 @@
 package com.teammate.find.Event;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class Event {
 	private BigDecimal code;
