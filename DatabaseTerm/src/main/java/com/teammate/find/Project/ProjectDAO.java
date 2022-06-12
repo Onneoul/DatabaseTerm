@@ -35,8 +35,8 @@ public class ProjectDAO {
 			
 			Project projectDetail = ss.getMapper(ProjectMapper.class).viewProjectDetail(p);
 			
-			projectDetail.setFeedbacks(ss.getMapper(ProjectMapper.class).viewProjectFeedBack(projectDetail));
-			projectDetail.setTechs(ss.getMapper(ProjectMapper.class).viewProjectTechs(projectDetail));
+//			projectDetail.setFeedbacks(ss.getMapper(ProjectMapper.class).viewProjectFeedBack(projectDetail));
+//			projectDetail.setTechs(ss.getMapper(ProjectMapper.class).viewProjectTechs(projectDetail));
 			
 			
 			req.setAttribute("projectDetail", projectDetail);
