@@ -22,8 +22,7 @@
 						왼쪽 탭<br>
 						<div><a href="/find">홈으로</a></div>
 						<div class="menu">
-							<div onclick="toProjectView()">프로젝트 조회</div>
-							<div><a href="">프로젝트 검색</a></div>
+							<a href="project.view">프로젝트 조회</a>
 							<div onclick="toEventList()">이벤트 리스트로</div>
 							<div onclick="toQuestionList()">질문 리스트로</div>
 						</div>

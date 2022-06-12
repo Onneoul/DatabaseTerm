@@ -32,14 +32,14 @@
 		update Question set title = #{title}, content = #{content}, reportDate = #{reportDate} where code = #{code}
 	</update>
 	<update id="updateAnswer" parameterType="com.teammate.find.Question.Answer">
-	
+		update answer set content = #{content}, writerDate = #{writerDate} where code = #{code}
 	</update>
 
 	<delete id="deleteQuestion" parameterType="com.teammate.find.Question.Question">
 		delete from question where code = #{code}
 	</delete>
 	<delete id="deleteAnswer" parameterType="com.teammate.find.Question.Answer">
-	
+		delete from answer where code = #{code}
 	</delete>
 
 </mapper>

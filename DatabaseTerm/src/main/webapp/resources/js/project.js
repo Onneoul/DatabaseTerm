@@ -1,5 +1,5 @@
 function projectCreate (projectName, projectContent /*기술 스택, 레벨 등등*/) {
-
+	
 };
 
 function projectCreateCheck (projectName) {
@@ -15,5 +15,5 @@ function toProjectDetail (projectNumber) {
 }
 
 function toProjectInsert () { // 로그인중인 유저 ID받아서 인수로 주고 이동해야함
-	location.href ="project.insert.go";
+	location.href ="to.project.create";
 } 
