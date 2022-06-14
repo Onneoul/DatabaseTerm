@@ -65,7 +65,7 @@
 		delete from Offer where number = #{number}
 	</delete>
 	<insert id="acceptOffer" parameterType="com.teammate.find.Project.Offer">
-		insert into projectmember (usercode, projectcode) values (#{userCode}, #{projectCode})
+		insert into promoteproject (usercode, projectcode) values (#{userCode}, #{projectCode})
 	</insert>
 	
 	

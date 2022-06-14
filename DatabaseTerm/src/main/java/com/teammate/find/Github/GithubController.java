@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestClientException;
+
+import com.teammate.find.Project.ProjectDAO;
 import com.teammate.find.User.UserDAO;
 
 @Controller
@@ -20,6 +22,8 @@ public class GithubController {
 	
 	@Autowired
 	private UserDAO uDAO;
+	@Autowired
+	private ProjectDAO pDAO;
 	
 	
 	
@@ -36,22 +40,14 @@ public class GithubController {
 		if (joinStatus.equals("false")) {
 			req.setAttribute("content", "./user/join.jsp"); // 비 회원가입일 시 회원가입창 반환
 		} else if (joinStatus.equals("true")) {
-
+			pDAO.viewProject(1, req, res);
 			req.setAttribute("content", "home.jsp");
 		} else {
+			pDAO.viewProject(1, req, res);
 			req.setAttribute("content", "home.jsp");
 			req.setAttribute("result", "Error"); // 만약 둘다 아닐시 (오류상황시)
 		}
 		
-		return "index";
-	}
-	
-	
-	@RequestMapping(value = " ", method = RequestMethod.GET)
-	public String getAccessToken (HttpServletRequest req, HttpServletResponse res) {
-	
-		
-		req.setAttribute("content", " .jsp");
 		return "index";
 	}
 	

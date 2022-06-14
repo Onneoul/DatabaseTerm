@@ -149,6 +149,10 @@ public class ProjectDAO {
 			projectDetail.setTechs(ss.getMapper(ProjectMapper.class).getProjectTech(projectDetail));
 			projectDetail.setMembers(ss.getMapper(ProjectMapper.class).getProjectMembers(projectDetail));
 			
+			System.out.println(projectDetail.getMembers());
+			for (User user : projectDetail.getMembers()) {
+				System.out.println(user.getName());
+			}
 			
 			req.setAttribute("projectDetail", projectDetail);
 			

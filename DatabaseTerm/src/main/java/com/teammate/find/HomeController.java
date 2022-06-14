@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.teammate.find.Project.ProjectDAO;
 import com.teammate.find.User.UserDAO;
 
 /**
@@ -27,6 +28,8 @@ public class HomeController {
 	
 	@Autowired
 	private UserDAO uDAO;
+	@Autowired
+	private ProjectDAO pDAO;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req, HttpServletResponse res) {
@@ -35,6 +38,8 @@ public class HomeController {
 		} else {
 			req.setAttribute("loginCheck", "./user/login.jsp");
 		}
+		
+		pDAO.viewProject(1, req, res);
 		req.setAttribute("content", "home.jsp");
 		
 		return "index";

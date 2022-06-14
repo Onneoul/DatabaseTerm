@@ -2,13 +2,9 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
 <html>
     <head>
-    	<meta name="description" content="Tagify">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="viewport" content="width=device-width">
   		<meta name="author" content="Yair Even Or">
-  		<script src="https://unpkg.com/@yaireo/tagify"></script>
-		<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-		<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <form action="project.create" method="post" name="projectCreateForm" onsubmit="return projectCreateCheck();">

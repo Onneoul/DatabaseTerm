@@ -26,7 +26,7 @@
 		insert into Question (title, Content, Writer, ReportDate) values (#{title}, #{content}, #{writer}, #{reportDate})
 	</insert>
 	<insert id="createAnswer" parameterType="com.teammate.find.Question.Answer">
-		insert into answer (questionCode, writer, content, WriteDate) values (#{questionCode}, #{writer}, #{content}, #{date})
+		insert into answer (questionCode, writer, content, WriteDate) values (#{questionCode}, #{writer}, #{content}, #{writeDate})
 	</insert>
 	<update id="updateQuestion" parameterType="com.teammate.find.Question.Question">
 		update Question set title = #{title}, content = #{content}, reportDate = #{reportDate} where code = #{code}

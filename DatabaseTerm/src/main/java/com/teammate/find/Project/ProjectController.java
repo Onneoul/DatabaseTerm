@@ -96,6 +96,8 @@ public class ProjectController {
 		o.setNumber(Integer.parseInt(req.getParameter("offerNumber")));
 		o.setProjectCode(Integer.parseInt(req.getParameter("projectCode")));
 		o.setUserCode(Integer.parseInt(req.getParameter("userCode")));
+		System.out.println(o.getProjectCode());
+		System.out.println(o.getUserCode());
 		
 		pDAO.acceptTeam(o, req, res);
 		pDAO.viewProjectDetail(p, req, res);

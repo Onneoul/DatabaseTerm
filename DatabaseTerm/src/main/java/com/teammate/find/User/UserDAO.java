@@ -126,6 +126,21 @@ public class UserDAO {
 		}
 	}
 	
+	public void updateUser(User u, HttpServletRequest req, HttpServletResponse res) {
+		
+		try {
+			
+			if (ss.getMapper(UserMapper.class).updateUser(u) == 1) {
+				req.setAttribute("result", "수정 성공");
+			} else {
+				req.setAttribute("result", "수정 실패");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int checkUserLevel(User u, HttpServletRequest req, HttpServletResponse res) {
 		
 		

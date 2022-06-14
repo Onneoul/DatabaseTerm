@@ -9,6 +9,7 @@ public class Question {
 	private String title;
 	private String content;
 	private int writer;
+	private String writerName;
 	private String reportDate;
 	
 	private List<QuestionTech> questionTechs;
@@ -18,12 +19,13 @@ public class Question {
 		
 	}
 	
-	public Question(int code, String title, String content, int writer, String reportDate, List<QuestionTech> questionTechs, List<Answer> answers) {
+	public Question(int code, String title, String content, int writer, String writerName, String reportDate, List<QuestionTech> questionTechs, List<Answer> answers) {
 		super();
 		this.code = code;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+		this.writerName = writerName;
 		this.reportDate = reportDate;
 		this.questionTechs = questionTechs;
 		this.answers = answers;
@@ -40,6 +42,9 @@ public class Question {
 	}
 	public int getWriter() {
 		return writer;
+	}
+	public String getWriterName() {
+		return writerName;
 	}
 	public String getReportDate() {
 		return reportDate;
@@ -63,6 +68,9 @@ public class Question {
 	}
 	public void setWriter(int writer) {
 		this.writer = writer;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
 	}
 	public void setReportDate(String reportDate) {
 		this.reportDate = reportDate;

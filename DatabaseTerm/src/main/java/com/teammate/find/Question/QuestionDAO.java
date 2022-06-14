@@ -93,6 +93,12 @@ public class QuestionDAO {
 	public void updateQuestion(Question q, HttpServletRequest req, HttpServletResponse res) {
 		
 		try {
+			
+			Date d = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String now = sdf.format(d);
+			
+			q.setReportDate(now);
 			if (ss.getMapper(QuestionMapper.class).updateQuestion(q) == 1) {
 				req.setAttribute("result", "글 수정 성공");
 			} else {
@@ -141,9 +147,13 @@ public class QuestionDAO {
 				search.setEnd(new BigDecimal(end));
 				QuestionCount = ss.getMapper(QuestionMapper.class).getQuestionCount(search);
 			}
+			User u = new User();
 			
 			List<Question> questionList = ss.getMapper(QuestionMapper.class).viewQuestion(search);
-			
+			for (Question question : questionList) {
+				u.setCode(question.getWriter());
+				question.setWriterName(ss.getMapper(UserMapper.class).getUserNameByCode(u));
+			}
 			
 			System.out.println(questionList);
 			
@@ -176,6 +186,8 @@ public class QuestionDAO {
 				answers.setWriterName(ss.getMapper(UserMapper.class).getUserNameByCode(u));
 			}
 			
+			u.setCode(q.getWriter());
+			q.setWriterName(ss.getMapper(UserMapper.class).getUserNameByCode(u));
 			req.setAttribute("questionDetail", q);
 			
 			
@@ -206,7 +218,7 @@ public class QuestionDAO {
 			String AnswerContent = (String) req.getParameter("content");
 			AnswerContent.replace("\r\n", "<br>");
 			a.setContent(AnswerContent); 
-			a.setDate(now);
+			a.setWriteDate(now);
 			
 			
 			if (ss.getMapper(QuestionMapper.class).createAnswer(a) == 1) {

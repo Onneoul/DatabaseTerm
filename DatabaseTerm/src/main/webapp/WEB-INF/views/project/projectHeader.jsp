@@ -35,6 +35,11 @@
 				</div>
 			<hr>
 			</c:if>
+			<p><strong>팀원 목록</strong></p>
+			<c:forEach var="pm" items="${projectDetail.members }">
+				<div onclick="location.href='user.detail.view?userCode=${pm.code}'">${pm.name }</div>
+			</c:forEach>
+			<hr>
 			<c:if test="${sessionScope.loginUser != null && sessionScope.loginUser.code != projectDetail.code}">
 				<div id="joinForm">
 					<form action="project.join?projectCode=${projectDetail.code }" method="GET">
@@ -63,7 +68,7 @@
 						<div class="projectFeedbackWriter" onclick="toUserDetail(${feedBack.writer})">${feedBack.writerName } ${feedBack.writeDate }</div>
 						<div class="projectFeedbackContent">${feedBack.content }</div>
 						<c:if test="${sessionScope.loginUser.code == feedBack.writer }">
-							<div onclick="toFeedBackDelete(${projectDetail.code },${feedBack.feedBackCode});" class="SiteButton">삭제</div>
+							<div onclick="toFeedBackDelete(${projectDetail.code }, ${feedBack.feedBackCode});" class="SiteButton">삭제</div>
 						</c:if>
 					</c:forEach>
 				</div>

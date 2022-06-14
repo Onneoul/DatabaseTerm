@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.teammate.find.Github.GithubDAO;
+import com.teammate.find.Project.ProjectDAO;
 
 @Controller
 public class UserController {
@@ -22,6 +23,9 @@ public class UserController {
 	
 	@Autowired
 	private UserDAO uDAO;
+	
+	@Autowired
+	private ProjectDAO pDAO;
 	
 	@RequestMapping(value="user.detail.view", method=RequestMethod.GET)
 	public String projectView(User u, HttpServletRequest req, HttpServletResponse res) {
@@ -46,6 +50,7 @@ public class UserController {
 		uDAO.login(u, req, res);
 		uDAO.loginCheck(req, res);
 		
+		pDAO.viewProject(1, req, res);
 		req.setAttribute("content", "home.jsp");
 		
 		return "index";
@@ -56,6 +61,8 @@ public class UserController {
 			uDAO.logout(req, res);
 			req.setAttribute("loginPage", "./user/login.jsp");
 		}
+		
+		pDAO.viewProject(1, req, res);
 		req.setAttribute("content", "home.jsp");
 		return "index";
 	}
@@ -73,14 +80,28 @@ public class UserController {
 		
 		uDAO.join(u, req, res);
 		uDAO.loginCheck(req, res);
+		
+		pDAO.viewProject(1, req, res);
 		req.setAttribute("content", "home.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value = "toUserUpdate", method = RequestMethod.GET)
-	public String toUserUpdate (HttpServletRequest req, HttpServletResponse res) {
-
-		req.setAttribute("content", " .jsp");
+	@RequestMapping(value = "to.user.update", method = RequestMethod.GET)
+	public String toUserUpdate (User u, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+		
+		u.setCode(Integer.parseInt(req.getParameter("userCode")));
+		uDAO.viewProfile(u, req, res);
+		req.setAttribute("content", "./user/updateProfile.jsp");
+		return "index";
+	}
+	@RequestMapping(value = "user.update", method = RequestMethod.POST)
+	public String userUpdate (User u, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+		
+		uDAO.updateUser(u, req, res);
+		uDAO.viewProfile(u, req, res);
+		req.setAttribute("content", "./user/profile.jsp");
 		return "index";
 	}
 	

@@ -10,14 +10,6 @@
 	<body>
 		<div>
 			<table>
-				<!--  
-					<c:if test="${sessionScope.loginUser.userLevel} >= 1">
-						<tr>
-							<td onclick="updateEvent(${eventDetail.code}, '${eventDetail.title }', '${eventDetail.content }', '${eventDetail.link }', ${eventDetail.startDate }, ${eventDetail.endDate }, ${curPage });">수정</td>
-							<td onclick="deleteEvent(${eventDetail.code});">삭제</td>
-						</tr>
-					</c:if>
-				-->
 				<tr>
 					<td>
 						${eventDetail.title }<hr>
@@ -39,8 +31,10 @@
 			</table>
 			<div align="center">
 				<a href="teammate.toEventUpdate?code=${eventDetail.code }"></a>
+				<c:if test="${sessionScope.loginUser.level == 2 }">
 				<button onclick="toEventUpdate(${eventDetail.code});" class="SiteButton">수정</button>
 				<button onclick="toEventDelete(${eventDetail.code});" class="SiteButton">삭제</button>
+				</c:if>
 			</div>
 		</div>
 	</body>

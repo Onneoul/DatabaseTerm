@@ -34,7 +34,7 @@
 	</insert>
 	
 	<update id="updateUser" parameterType="com.teammate.find.User.User">
-		update user set password = #{password}, email = #{email}
+		update user set name = #{name} ,password = #{password}, email = #{email}
 	</update>
 	
 	<delete id="deleteUser" parameterType="com.teammate.find.User.User">

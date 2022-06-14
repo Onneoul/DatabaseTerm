@@ -114,15 +114,28 @@ public class QuestionController {
 	
 	// Answer 파트
 	@RequestMapping(value = "answer.create", method = RequestMethod.GET)
-	public String createAnswer (Answer a, HttpServletRequest req, HttpServletResponse res) {
+	public String createAnswer(Answer a, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 		
 		Question q = new Question();
-		q.setCode(a.getquestionCode());
-		
+		q.setCode(a.getQuestionCode());
 		
 		qDAO.createAnswer(a, req, res);
 		
+		qDAO.viewQuestionDetail(q, req, res);
+		req.setAttribute("content", "./question/questionDetail.jsp");
+		return "index";
+	}
+	@RequestMapping(value = "answer.delete", method = RequestMethod.GET)
+	public String deleteAnswer(Answer a, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+		
+		Question q = new Question();
+		q.setCode(Integer.parseInt(req.getParameter("questionCode")));
+		
+		a.setcode(Integer.parseInt(req.getParameter("answerCode")));
+		qDAO.deleteAnswer(a, req, res);
+
 		qDAO.viewQuestionDetail(q, req, res);
 		req.setAttribute("content", "./question/questionDetail.jsp");
 		return "index";

@@ -28,10 +28,10 @@ function toProjectDelete(code) {
 	}
 }
 
-function toFeedBackDelete(code) {
+function toFeedBackDelete(projectCode, code) {
 	var ok = confirm("정말 이 글을 삭제하시겠습니까?");
 	if (ok) {
-		location.href = "project.feedback.delete?feedBackCode=" + code;
+		location.href = "project.feedback.delete?projectCode="+projectCode+"&feedBackCode=" + code;
 		alert("삭제되었습니다.");
 	} else {
 		alert("삭제를 취소하셨습니다.");

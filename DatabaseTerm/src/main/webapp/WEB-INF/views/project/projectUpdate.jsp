@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 	<head>
@@ -26,7 +26,7 @@
                 	</select>
                 </div>
                 <div>
-                	<button type="submit" class="SiteButton" onclick="projectCreate" value="전송"></button>
+                	<button type="submit" class="SiteButton" onclick="projectCreate" value="전송">수정 완료</button>
                 </div>
             </div>
         </form>

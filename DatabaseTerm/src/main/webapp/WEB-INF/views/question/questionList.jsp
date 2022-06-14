@@ -7,9 +7,11 @@
 	</head>
 	<body style="text-align=center">
 		<div id="eventWrap">
+		<c:if test="${sessionScope.loginUser != null }">
 			<div>
 				<button onclick="toQuestionCreate();">작성</button>
 			</div>
+		</c:if>
 			<p>질문 리스트</p>
 			<hr>
 			<!-- 
@@ -27,9 +29,8 @@
 			
 			<c:forEach var="QL" items="${questionList }">
 				<div class="eventThumbnail" onclick="toQuestionDetail(${QL.code});">
-					<div id="questionViewTitle"> ${QL.code} 제목:  ${QL.title} </div>
-					<div> 작성일: ${QL.reportDate } 작성자 : ${QL.writer } </div>
-					
+					<div id="questionViewTitle">제목:  ${QL.title} </div>
+					<div> 작성일: ${QL.reportDate } 작성자 : ${QL.writerName } </div>
 					<div id="questionTechArea">
 						<c:forEach var="techs" items="${QL.questionTechs }">
 							<div class="tag">${techs.techName }</div>

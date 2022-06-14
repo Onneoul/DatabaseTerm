@@ -12,7 +12,7 @@ public class User {
 	private String email;
 	private String name;
 	private String githubLink;
-	private int userLevel;
+	private int level;
 	
 	private List<Project> projects;
 	private List<UserTech> userTechs;
@@ -21,7 +21,7 @@ public class User {
 		
 	}
 	
-	public User(int code, String id, String password, String email, String name, String githubLink, int userLevel, List<Project> projects, List<UserTech> userTechs) {
+	public User(int code, String id, String password, String email, String name, String githubLink, int level, List<Project> projects, List<UserTech> userTechs) {
 		super();
 		this.code = code;
 		this.id = id;
@@ -29,7 +29,7 @@ public class User {
 		this.email = email;
 		this.name = name;
 		this.githubLink = githubLink;
-		this.userLevel = userLevel;
+		this.level = level;
 		this.projects = projects;
 		this.userTechs = userTechs;
 	}
@@ -52,8 +52,8 @@ public class User {
 	public String getGithubLink() {
 		return githubLink;
 	}
-	public int getUserLevel() {
-		return userLevel;
+	public int getLevel() {
+		return level;
 	}
 	public List<Project> getProjects() {
 		return projects;
@@ -80,8 +80,8 @@ public class User {
 	public void setGithubLink(String githubLink) {
 		this.githubLink = githubLink;
 	}
-	public void setUserLevel(int userLevel) {
-		this.userLevel = userLevel;
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;

@@ -13,18 +13,15 @@
         
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/project.js"></script>
         
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/tagify.css">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="//code.jquery.com/jquery.min.js"></script>
-        <script src="jQuery.tagify.js"></script>
         
         
-        <script src="https://unpkg.com/@yaireo/tagify"></script>
-		<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-		<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+      	<script src="https://unpkg.com/@yaireo/tagify"></script>
+ 		<script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+  		<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 		
         
         <script type="text/javascript" src="resources/js/siteMove.js"></script>
+        <script type="text/javascript" src="resources/js/main.js"></script>
         <script type="text/javascript" src="resources/js/user.js"></script>
         <script type="text/javascript" src="resources/js/event.js"></script>
         <script type="text/javascript" src="resources/js/project.js"></script>
@@ -42,9 +39,9 @@
 						<div class="menu">
 							<a href="project.list">프로젝트 조회</a>
 							<hr>
-							<div onclick="toEventList()">이벤트 리스트로</div>
+							<div onclick="toEventList()">공지사항</div>
 							<hr>
-							<div onclick="toQuestionList()">질문 리스트로</div>
+							<div onclick="toQuestionList()">질문 게시판</div>
 						</div>
 				</div>
 				<div id="siteContent">

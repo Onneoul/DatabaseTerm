@@ -8,12 +8,11 @@
 	<body style="text-align=center">
 		<div id="eventWrap">
 			<div>
-				<c:if test="${sessionScope.loginUser.userLevel == 2}">
+				<c:if test="${sessionScope.loginUser.level == 2}">
 					<button onclick="toEventCreate();">작성</button>
 					<hr>
 				</c:if>
-				<input type="hidden" name="eventUser" value="${sessionScope.loginUser.userLevel}">
-				<button onclick="toEventCreate();">작성</button><br>
+				<input type="hidden" name="eventUser" value="${sessionScope.loginUser.level}">
 			</div>
 			<p>공지 리스트</p>
 			<hr>
@@ -39,7 +38,7 @@
 						<td>시작 일자: ${eS.startDate }</td>
 						<td>종료 일자: ${eS.endDate }</td>
 					</tr>
-					<c:if test="${sessionScope.loginUser.userLevel} >= 2">
+					<c:if test="${sessionScope.loginUser.level == 2}">
 						<tr>
 							<td onclick="toEventUpdate(${eS.code});">수정</td>
 							<td onclick="toEventDelete(${eS.code});">삭제</td>

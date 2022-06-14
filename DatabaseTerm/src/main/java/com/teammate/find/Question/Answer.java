@@ -4,29 +4,29 @@ import java.util.Date;
 
 public class Answer {
 	private int questionCode;
-	private int answerCode;
+	private int code;
 	private int writer;
 	private String writerName;
 	private String content;
-	private String date;
+	private String writeDate;
 	private int recommendation;
 	
 	public Answer() {
 		
 	}
 	
-	public Answer(int questionCode, int answerCode, int writer, String writerName, String content, String date, int recommendation) {
+	public Answer(int questionCode, int code, int writer, String writerName, String content, String writeDate, int recommendation) {
 		super();
 		this.questionCode = questionCode;
-		this.answerCode = answerCode;
+		this.code = code;
 		this.writer = writer;
 		this.writerName = writerName;
 		this.content = content;
-		this.date = date;
+		this.writeDate = writeDate;
 		this.recommendation = recommendation;
 	}
 	
-	public int getquestionCode() {
+	public int getQuestionCode() {
 		return questionCode;
 	}
 	public int getWriter() {
@@ -38,18 +38,18 @@ public class Answer {
 	public String getContent() {
 		return content;
 	}
-	public String getDate() {
-		return date;
+	public String getWriteDate() {
+		return writeDate;
 	}
 	public int getRecommendation() {
 		return recommendation;
 	}
-	public int getAnswerCode() {
-		return answerCode;
+	public int getcode() {
+		return code;
 	}
 	
 	
-	public void setquestionCode(int questionCode) {
+	public void setQuestionCode(int questionCode) {
 		this.questionCode = questionCode;
 	}
 	public void setWriter(int writer) {
@@ -61,13 +61,13 @@ public class Answer {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
 	}
 	public void setRecommendation(int recommendation) {
 		this.recommendation = recommendation;
 	}
-	public void setAnswerCode(int answerCode) {
-		this.answerCode = answerCode;
+	public void setcode(int code) {
+		this.code = code;
 	}
 }

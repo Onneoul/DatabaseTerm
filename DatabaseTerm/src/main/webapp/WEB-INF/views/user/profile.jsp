@@ -53,6 +53,10 @@
                	<hr>
                	</c:forEach>
             </div> 
+            <c:if test="${userDetail.code == sessionScope.loginUser.code }">
+            	<button onclick="location.href='to.user.update?userCode=${userDetail.code}'">정보 수정</button>
+            	<button onclick="toUserDelete(${userDetail.code});">회원 탈퇴</button>
+            </c:if>
         </div>
     </body>
 </html>
