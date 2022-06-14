@@ -20,27 +20,27 @@
 				-->
 				<tr>
 					<td>
-						${eventDetail.title }
+						${eventDetail.title }<hr>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						${eventDetail.startDate } ~ ${eventDetail.endDate }
+						${eventDetail.startDate } ~ ${eventDetail.endDate }<hr>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						${eventDetail.content }
+						${eventDetail.content }<hr>
 					</td>
 				</tr>
 				<tr>
-					<td><a href="${eventDetail.link }">${eventDetail.link }</a></td>
+					<td><a href="${eventDetail.link }">${eventDetail.link }</a><hr></td>
 				</tr>
 			</table>
-			<div>
+			<div align="center">
 				<a href="teammate.toEventUpdate?code=${eventDetail.code }"></a>
-				<p onclick="toEventUpdate(${eventDetail.code});" class="SiteButton">수정</p><br>
-				<p onclick="toEventDelete(${eventDetail.code});" class="SiteButton">삭제</p>
+				<button onclick="toEventUpdate(${eventDetail.code});" class="SiteButton">수정</button>
+				<button onclick="toEventDelete(${eventDetail.code});" class="SiteButton">삭제</button>
 			</div>
 		</div>
 	</body>

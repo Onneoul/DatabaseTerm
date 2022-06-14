@@ -3,44 +3,44 @@
 #questionDetailTechsArea {
 	width: 80%;
 }
+.techTags {
+	width: 10%;	
+}
+
+#answerContent {
+	width: 90%;
+	height: 200px;
+	border: none;
+	border-bottom: 3px solid rgb(105, 4, 105);
+	margin-bottom: 17%;
+	resize: none;
+}
 
 #questionContainer {
 	margin-top: 10%;
-	display: grid;
-	grid-template-areas:
-	"questionArea"
-	"answerArea"
-	"answerWriteArea";
+	white-space: normal;
 }
 
 #questionArea {
-	display: grid;
-	grid-template-areas:
-	"title buttonArea"
-	"content content"
-	"tagarea tagarea";
-	
 	grid-area: questionArea;
-	<!-- 컬럼 하나, 로우 3개 -->
 }
 #questionDetailTitle {
 	display: grid;
-	gird-area: title;
+	grid-area: title;
 }
 #buttonArea {
-	display: grid;
 	grid-area: buttonArea;
-	grid-template-areas:
-	"update delete";
+	
 }
+
 #updateButton {
 	grid-area: update;
-	width: 30%;
+	width: 10%;
 	float: right;
 }
 #deleteButton {
 	grid-area: delete;
-	width: 30%;
+	width: 10%;
 	float: right;
 }
 
@@ -51,11 +51,6 @@
 #questionDetailTechsArea {
 	display: grid;
 	grid-area: tagarea;
-}
-
-.techTags {
-	width: 10%;
-	float: left;
 }
 
 #answerArea {
@@ -73,11 +68,12 @@
 
 .answerWriter {
 	margin-top: 5%;
+	width:100%;
 	grid-area: writer;
 }
 
 .answerDate {
-	gird-area: date;
+	grid-area: date;
 }
 
 .answerContent {

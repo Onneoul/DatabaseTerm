@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+#projectListArea {
+	white-space: normal;
+}
+
+.projectList {
+	width:90%;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	display: grid;
+	grid-column: 100%;
+	grid-template-areas:
+	"projectTitle projectStatus"
+	"projectTechs projectTechs";
+}
+
+.projectTitle {
+	grid-area: projectTitle;
+	justify-self: start;
+	
+}
+
+.projectLeader {
+	grid-area: projectLeader;
+}
+
+.projectStatus {
+	grid-area: projectStatus;
+	justify-self: end;
+}
+
+.projectTechs {
+	grid-area: projectTechs;
+	justify-self: start;
+}
+
+.feedBackList {
+	margin-top: 3%;
+}
+
+
+#projectCreateArea {
+	display: grid;
+	grid-template-areas: 
+	"title title"
+	"content content"
+	"link level"
+	"tag submit";
+	justify-content: space-between;
+}
+
+#projectTitle {
+	grid-area: title;
+}
+
+.projectInput {
+	width: 90%;
+	border: none;
+	border-bottom: 3px solid rgb(105, 4, 105);
+	margin-top: 5%;
+}
+
+.projectInput:focus {
+	outline: none;
+}
+
+#projectContent {
+	height: 500px;
+
+	grid-area: content;
+}
+
+#projectContentInput {
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-bottom: 3px solid rgb(105, 4, 105);
+	margin-top: 5%;
+	resize: none;
+}
+
+#projectContentInput:focus {
+	outline: none;
+}
+
+#projeckLink {
+	grid-area: link;
+}
+
+#projectLevel {
+	grid-area: level;
+}
+
+#projectTag {
+	grid-area: tag;
+	justify-self: start;
+}
+
+#projectSubmit {
+	grid-area: submit;
+}

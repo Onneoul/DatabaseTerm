@@ -24,7 +24,7 @@ public class QuestionController {
 	@RequestMapping(value = "to.question.create", method = RequestMethod.GET)
 	public String toQuestionCreate (HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
-		
+		TokenMaker.make(req, res);
 		
 		req.setAttribute("content", "./question/questionCreate.jsp");
 		return "index";
@@ -70,6 +70,8 @@ public class QuestionController {
 		uDAO.loginCheck(req, res);
 		q.setCode(Integer.parseInt(req.getParameter("questionCode")));
 		qDAO.viewQuestionDetail(q, req, res);
+		
+		String tag = req.getParameter("tags");
 		
 		req.setAttribute("content", "./question/questionDetail.jsp");
 		return "index";
@@ -117,6 +119,7 @@ public class QuestionController {
 		
 		Question q = new Question();
 		q.setCode(a.getquestionCode());
+		
 		
 		qDAO.createAnswer(a, req, res);
 		

@@ -16,13 +16,17 @@
 	<select id="userJoinCheck" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.User">
 		select * from user where id = #{id}
 	</select>
+	<select id="getUserNameByCode" parameterType="com.teammate.find.User.User" resultType="string">
+		select name from user where code = #{code}
+	</select>
+	
 	
 	<select id="getUserTechs" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.User.UserTech">
 		select ut.techcode, t.techname, ut.level from tech t inner join usertech ut on t.code = ut.techcode where t.code = any(select techcode from usertech where usercode = #{code})
 	</select>
 	<select id="getUserProjects" parameterType="com.teammate.find.User.User" resultType="com.teammate.find.Project.Project">
-		select p.code, p.title, p.status from project p inner join promoteproject pt on p.code = pt.projectcode 
-			where pt.usercode = any(select usercode from promoteproject where usercode = #{code})
+		select p.code, p.title, p.status from project p inner join projectmember pt on p.code = pt.projectcode 
+			where pt.usercode = any(select usercode from projectmember where usercode = #{code});
 	</select>
 	
 	<insert id="joinUser" parameterType="com.teammate.find.User.User">

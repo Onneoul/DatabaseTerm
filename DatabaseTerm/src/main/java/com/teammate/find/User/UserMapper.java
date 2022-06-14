@@ -12,6 +12,8 @@ public interface UserMapper {
 	public abstract User userLogin(User u);
 	public abstract User userJoinCheck(User u);
 	
+	public abstract String getUserNameByCode(User u);
+	
 	public abstract List<Project> getUserProjects(User u);
 	public abstract List<UserTech> getUserTechs(User u);
 	

@@ -8,13 +8,15 @@
 	<body style="text-align=center">
 		<div id="eventWrap">
 			<div>
-				<c:if test="${sessionScope.loginUser.userLevel} >= 1">
-					<button onclick="toEventCreate();">작성</button><br>
+				<c:if test="${sessionScope.loginUser.userLevel == 2}">
+					<button onclick="toEventCreate();">작성</button>
+					<hr>
 				</c:if>
 				<input type="hidden" name="eventUser" value="${sessionScope.loginUser.userLevel}">
 				<button onclick="toEventCreate();">작성</button><br>
 			</div>
-			<p>공지 리스트</p><br>
+			<p>공지 리스트</p>
+			<hr>
 			<!-- 
 				<form action="event.search" method="get">
 					<table>
@@ -44,6 +46,7 @@
 						</tr>
 					</c:if>
 				</table>
+				<hr>
 			</c:forEach>
 			
 			<div class="eventPaging">

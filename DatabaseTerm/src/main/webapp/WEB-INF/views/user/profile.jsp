@@ -11,9 +11,11 @@
                     <div>
                         <div>${userDetail.id} 추천수</div>
                     </div>
+                    <hr>
                     <div>
                         <div>${userDetail.name}</div>
                     </div>
+                    <hr>
                     <div>
                         <div>${userDetail.email}</div>
                     </div>
@@ -21,20 +23,34 @@
                     	<button onclick="toUserUpdate(${userDetail.code});" value="수정">수정</button>
                     </c:if>
                 </div>
+                <hr>
                 <div id="userTechArea">
                     <c:forEach var="UT" items="${userDetail.userTechs }">
-                    	<div>
-	                    	<div class="techTags">${UT.techName }: ${UT.level }</div>
-                    	</div>
+	                    <div class="userTechTags">${UT.techName }: 
+	                    	<c:choose>
+	                    		<c:when test="${UT.level == 1 }">레벨 1</c:when>
+	                    		<c:when test="${UT.level == 2 }">레벨 2</c:when>
+	                    		<c:when test="${UT.level == 3 }">레벨 3</c:when>
+	                    	</c:choose>
+	                    </div>
                     </c:forEach>
                 </div>
             </div>
-            <div id="githubProfile">
-            	<div><a href="${userDetail.githubLink }">${userDetail.githubLink }</a></div><br>
+            <div id="githubProfile" align="left">
+            	<div><a href="${userDetail.githubLink }">${userDetail.githubLink }</a></div>
+				<hr>
                	<c:forEach var="UP" items="${userDetail.projects }">
-               	<div onclick="toProjectDetail(${UP.code});">
-               		<div>${UP.title } ${UP.status }<c:if test="${UP.status } == 1"> 진행중</c:if><c:if test="${UP.status } == 2"> 종료</c:if></div>
+               	<div onclick="location.href='project.detail?projectCode=${UP.code}'">
+               		<div>
+               			${UP.title }
+						<c:choose>
+							<c:when test="${UP.code == 1}">진행중</c:when>
+							<c:when test="${UP.code == 2}">완료</c:when>
+							<c:when test="${UP.code == 3}">중단</c:when>
+						</c:choose>
+					</div>
                	</div>
+               	<hr>
                	</c:forEach>
             </div> 
         </div>

@@ -6,6 +6,7 @@ public class Answer {
 	private int questionCode;
 	private int answerCode;
 	private int writer;
+	private String writerName;
 	private String content;
 	private String date;
 	private int recommendation;
@@ -14,11 +15,12 @@ public class Answer {
 		
 	}
 	
-	public Answer(int questionCode, int answerCode, int writer, String content, String date, int recommendation) {
+	public Answer(int questionCode, int answerCode, int writer, String writerName, String content, String date, int recommendation) {
 		super();
 		this.questionCode = questionCode;
 		this.answerCode = answerCode;
 		this.writer = writer;
+		this.writerName = writerName;
 		this.content = content;
 		this.date = date;
 		this.recommendation = recommendation;
@@ -29,6 +31,9 @@ public class Answer {
 	}
 	public int getWriter() {
 		return writer;
+	}
+	public String getWriterName() {
+		return writerName;
 	}
 	public String getContent() {
 		return content;
@@ -49,6 +54,9 @@ public class Answer {
 	}
 	public void setWriter(int writer) {
 		this.writer = writer;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
 	}
 	public void setContent(String content) {
 		this.content = content;

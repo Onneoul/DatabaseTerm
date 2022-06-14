@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.teammate.find.Site.SiteOption;
 import com.teammate.find.User.UserDAO;
 
 @Controller
@@ -20,29 +21,45 @@ public class ProjectController {
 	@Autowired
 	private ProjectDAO pDAO;
 	
-	@RequestMapping(value="project.view", method=RequestMethod.GET)
+	
+	// Project View 파트
+	@RequestMapping(value="project.list", method=RequestMethod.GET)
 	public String projectView(HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
+		SiteOption.clearSearch(req, res);
+		SiteOption.clearSearchDate(req, res);
+		pDAO.viewProject(1, req, res);
 		
 		req.setAttribute("content", "./project/projectList.jsp");
+		return "index";
+	}
+	@RequestMapping(value = "project.page.change", method = RequestMethod.GET)
+	public String projectPageChange(HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+
+		req.setAttribute("content", " .jsp");
 		return "index";
 	}
 	@RequestMapping(value = "project.detail", method = RequestMethod.GET)
 	public String projectDetailView(Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 
-		
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
 		pDAO.viewProjectDetail(p, req, res);
 		
-		req.setAttribute("detailBody", "./project/content/projectDetail.jsp");
+		req.setAttribute("detailBody", "./content/projectDetail.jsp");
 		req.setAttribute("content", "./project/projectHeader.jsp");
+		
 		return "index";
 	}
+	
+	
+	// Project Detail의 세부 파트
 	@RequestMapping(value = "project.todo", method = RequestMethod.GET)
 	public String projectTodoView(Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 
-		req.setAttribute("detailBody", "./project/content/todoList.jsp");
+		req.setAttribute("detailBody", "./content/todoList.jsp");
 		req.setAttribute("content", "./project/projectHeader.jsp");
 		return "index";
 	}
@@ -56,7 +73,57 @@ public class ProjectController {
 	}
 	
 	
+	// Project Join 파트
+	@RequestMapping(value = "project.join", method = RequestMethod.GET)
+	public String projectJoin (Offer o, Project p, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+
+		
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
+		pDAO.joinTeam(o, req, res);
+		pDAO.viewProjectDetail(p, req, res);
+		
+		req.setAttribute("detailBody", "./content/projectDetail.jsp");
+		req.setAttribute("content", "./project/projectHeader.jsp");
+		return "index";
+	}
+	@RequestMapping(value = "project.join.accept", method = RequestMethod.GET)
+	public String joinAccept(Offer o, Project p, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+		
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
+		
+		o.setNumber(Integer.parseInt(req.getParameter("offerNumber")));
+		o.setProjectCode(Integer.parseInt(req.getParameter("projectCode")));
+		o.setUserCode(Integer.parseInt(req.getParameter("userCode")));
+		
+		pDAO.acceptTeam(o, req, res);
+		pDAO.viewProjectDetail(p, req, res);
+		
+		req.setAttribute("detailBody", "./content/projectDetail.jsp");
+		req.setAttribute("content", "./project/projectHeader.jsp");
+		return "index";
+	}
+	@RequestMapping(value = "project.join.denied", method = RequestMethod.GET)
+	public String joinDenied(Offer o, Project p, HttpServletRequest req, HttpServletResponse res) {
+		uDAO.loginCheck(req, res);
+
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
+		
+		o.setNumber(Integer.parseInt(req.getParameter("offerNumber")));
+		o.setProjectCode(Integer.parseInt(req.getParameter("projectCode")));
+		o.setUserCode(Integer.parseInt(req.getParameter("userCode")));
+		
+		pDAO.deniedTeam(o, req, res);
+		pDAO.viewProjectDetail(p, req, res);
+		
+		req.setAttribute("detailBody", "./content/projectDetail.jsp");
+		req.setAttribute("content", "./project/projectHeader.jsp");
+		return "index";
+	}
 	
+	
+	// Project CUD 파트
 	@RequestMapping(value = "to.project.create", method = RequestMethod.GET)
 	public String toCreateProject(HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
@@ -66,10 +133,11 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value = "project.create", method = RequestMethod.POST)
-	public String createProject(HttpServletRequest req, HttpServletResponse res) {
+	public String createProject(Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 		
-		req.setAttribute("content", "./project/projectCreate.jsp");
+		pDAO.createProject(p, req, res);
+		req.setAttribute("content", "./project/content/projectDetail.jsp");
 		return "index";
 	}
 
@@ -84,39 +152,47 @@ public class ProjectController {
 	public String updateProject(Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 
-		req.setAttribute("content", "./project/projectDetail.jsp");
+		pDAO.updateProject(p, req, res);
+		req.setAttribute("content", "./project/content/projectDetail.jsp");
 		return "index";
 	}
 
 	@RequestMapping(value = "project.delete", method = RequestMethod.GET)
-	public String deleteProject(HttpServletRequest req, HttpServletResponse res) {
+	public String deleteProject(Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
+		pDAO.deleteProject(p, req, res);
+		pDAO.viewProject(1, req, res);
 		req.setAttribute("content", "./project/projectList.jsp");
 		return "index";
 	}
 	
 	
-	@RequestMapping(value = "project.feedback", method = RequestMethod.GET)
-	public String feedbackProject(HttpServletRequest req, HttpServletResponse res) {
+	// FeedBack 파트
+	@RequestMapping(value = "project.feedback.create", method = RequestMethod.POST)
+	public String feedbackCreate(FeedBack f, Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 
-		req.setAttribute("content", "./project/projectDetail.jsp");
+		pDAO.createFeedBack(f, req, res);
+		
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
+		pDAO.viewProjectDetail(p, req, res);
+		req.setAttribute("detailBody", "./content/projectDetail.jsp");
+		req.setAttribute("content", "./project/projectHeader.jsp");
 		return "index";
 	}
-	
-	@RequestMapping(value = "project.join.request", method = RequestMethod.GET)
-	public String projectJoinRequest(HttpServletRequest req, HttpServletResponse res) {
+	@RequestMapping(value = "project.feedback.delete", method = RequestMethod.GET)
+	public String feedbackDelete(FeedBack f, Project p, HttpServletRequest req, HttpServletResponse res) {
 		uDAO.loginCheck(req, res);
 
-		req.setAttribute("content", "./project/projectDetail.jsp");
-		return "index";
-	}
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String projectJoinAccept(HttpServletRequest req, HttpServletResponse res) {
-		uDAO.loginCheck(req, res);
-
-		req.setAttribute("content", ".jsp");
+		f.setFeedBackCode(Integer.parseInt(req.getParameter("feedBackCode")));
+		pDAO.deleteFeedBack(f, req, res);
+		
+		p.setCode(Integer.parseInt(req.getParameter("projectCode")));
+		pDAO.viewProjectDetail(p, req, res);
+		req.setAttribute("detailBody", "./content/projectDetail.jsp");
+		req.setAttribute("content", "./project/projectHeader.jsp");
 		return "index";
 	}
 }

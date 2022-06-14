@@ -1,21 +1,30 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType = "text/html;charset=utf-8" %>
 <html>
     <head>
-   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="Tagify">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width">
+  		<meta name="author" content="Yair Even Or">
+  		<script src="https://unpkg.com/@yaireo/tagify"></script>
+		<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+		<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <form action="project.create" method="post" name="projectCreateForm" onsubmit="return projectCreateCheck();">
             <div id="projectCreateArea">
-                <input type="text" id="projectColorInput" name="leader" value="${sessionScope.loginUser.code }">
+                <input type="hidden" name="leader" value="${sessionScope.loginUser.code }">
                 <div id="projectTitle">
-                	<input type="text" id="projectInput" name="title" autofocus placeholder="프로젝트 타이틀">
+                	<input type="text" class="projectInput" name="title" autofocus placeholder="프로젝트 타이틀" maxlength="50" >
                 </div>
                 <div id="projectContent">
-                	<input type="text" id="projectInput" name="content" placeholder="프로젝트 내용">
+               		<textarea id="projectContentInput" name="content">프로젝트 내용</textarea>
                 </div>
                 <div id="projectLink">
-                	<input type="text" id="projectInput" name="githubLink" placeholder="깃허브 링크">
+                	<input type="text" class="projectInput" name="githubLink" placeholder="깃허브 링크">
+                </div>
+                <div id="projectTag">
+                	<input class="tagifyinput" name="tags" placeholder="java" value="java">
                 </div>
                 <div id="projectLevel">
                 	<select name="level">
@@ -24,8 +33,8 @@
                 		<option value="3">서비스</option>
                 	</select>
                 </div>
-                <div>
-                	<button type="submit" class="SiteButton" onclick="projectCreate" value="전송"></button>
+                <div id="projectSubmit">
+                	<button type="submit" class="SiteButton" onclick="projectCreate" value="전송">작성 완료</button>
                 </div>
             </div>
         </form>

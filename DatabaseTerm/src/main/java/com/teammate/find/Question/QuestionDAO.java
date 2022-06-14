@@ -18,6 +18,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.teammate.find.DateCreate;
 import com.teammate.find.Event.EventMapper;
 import com.teammate.find.Site.SiteOption;
 
@@ -33,6 +34,8 @@ public class QuestionDAO {
 	
 	@Autowired
 	private SiteOption so;
+	
+	private DateCreate DC;
 	
 	public void countQuestions() {
 		QuestionSelector eS = new QuestionSelector("", null, null);
@@ -88,13 +91,6 @@ public class QuestionDAO {
 	public void updateQuestion(Question q, HttpServletRequest req, HttpServletResponse res) {
 		
 		try {
-			
-			Date d = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			String now = sdf.format(d);
-			
-			q.setReportDate(now);
-			
 			if (ss.getMapper(QuestionMapper.class).updateQuestion(q) == 1) {
 				req.setAttribute("result", "글 수정 성공");
 			} else {
@@ -168,7 +164,6 @@ public class QuestionDAO {
 		try {
 			
 			q = ss.getMapper(QuestionMapper.class).getQuestionDetail(q);
-//			q.setAnswers((List<Answer>) ss.getMapper(QuestionMapper.class));
 			q.setQuestionTechs(ss.getMapper(QuestionMapper.class).getQuestionTechs(q));
 			
 			q.setAnswers(ss.getMapper(QuestionMapper.class).getQuestionAnswers(q));

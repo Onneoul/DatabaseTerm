@@ -9,12 +9,13 @@
 	<body>
 		<form action="user.login" method="post" id="userLogin" name="userLoginForm" onsubmit="return userLoginCheck();">
 			<div>
-				<div><input class="input" name="id" placeholder="아이디"></div><br>
-				<div><input class="input" name="password" placeholder="비밀번호" autocomplete="name"></div><br>
-				<div><button type="submit" id="button1" value="로그인">로그인</button></div><br>
+				<div><input class="inputText" name="id" placeholder="아이디"></div><br>
+				<div><input class="inputText" name="password" placeholder="비밀번호" autocomplete="name"></div><br>
+				<div><button type="submit" id="button1" value="로그인">로그인</button></div>
 				<p onclick="getToken();">GitHub 아이디로 로그인</p>
 			</div>
 		</form>
-			<div><button id="toUserJoin" onclick="toUserJoin();" value="회원 가입">회원 가입</button></div>
+		<hr>
+		<div><button id="toUserJoin" onclick="toUserJoin();" value="회원 가입">회원 가입</button></div>
 	</body>
 </html>

@@ -8,9 +8,10 @@
 	<body style="text-align=center">
 		<div id="eventWrap">
 			<div>
-				<button onclick="toQuestionCreate();">작성</button><br>
+				<button onclick="toQuestionCreate();">작성</button>
 			</div>
-			<p>질문 리스트</p><br>
+			<p>질문 리스트</p>
+			<hr>
 			<!-- 
 				<form action="event.search" method="get">
 					<table>
@@ -35,6 +36,7 @@
 						</c:forEach>
 					</div>
 				</div>
+				<hr>
 			</c:forEach>
 			
 			<div class="Paging">
