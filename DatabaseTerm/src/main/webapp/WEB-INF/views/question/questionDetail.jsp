@@ -36,8 +36,8 @@
 		<div id="answerArea">
 			<c:forEach var="AN" items="${questionDetail.answers }">
 			<div class="answers">
-				<div class="answerWriter">
-					${AN.writer }
+				<div class="answerWriter" onclick="location.href='user.detail.view?userCode=${AN.writer}'">
+					${AN.writerName }
 				</div>
 				<div class="answerDate">
 					${AN.date }
@@ -45,9 +45,11 @@
 				<div class="answerContent">
 					<p>${AN.content }</p>
 				</div>
+				<!--  
 				<div class="answerRecommend">
 					${AN.recommendation }
 				</div>
+				-->
 			</div>
 			<hr>
 			</c:forEach>

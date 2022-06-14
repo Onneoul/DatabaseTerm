@@ -2,7 +2,7 @@ package com.teammate.find.Project;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+
 public class FeedBack {
 	private int projectCode;
 	private int feedBackCode;

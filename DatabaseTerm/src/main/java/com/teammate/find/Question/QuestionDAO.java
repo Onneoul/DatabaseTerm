@@ -21,6 +21,8 @@ import org.springframework.web.multipart.MultipartRequest;
 import com.teammate.find.DateCreate;
 import com.teammate.find.Event.EventMapper;
 import com.teammate.find.Site.SiteOption;
+import com.teammate.find.User.User;
+import com.teammate.find.User.UserMapper;
 
 @Service
 public class QuestionDAO {
@@ -166,7 +168,13 @@ public class QuestionDAO {
 			q = ss.getMapper(QuestionMapper.class).getQuestionDetail(q);
 			q.setQuestionTechs(ss.getMapper(QuestionMapper.class).getQuestionTechs(q));
 			
+			User u = new User();
+			
 			q.setAnswers(ss.getMapper(QuestionMapper.class).getQuestionAnswers(q));
+			for (Answer answers : q.getAnswers()) {
+				u.setCode(answers.getWriter());
+				answers.setWriterName(ss.getMapper(UserMapper.class).getUserNameByCode(u));
+			}
 			
 			req.setAttribute("questionDetail", q);
 			
@@ -213,6 +221,23 @@ public class QuestionDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+	}
+	
+	public void deleteAnswer(Answer a, HttpServletRequest req, HttpServletResponse res) {
+		
+		try {
+			
+			if(ss.getMapper(QuestionMapper.class).deleteAnswer(a) == 1) {
+				req.setAttribute("result", "글 삭제 성공");
+			} else {
+				req.setAttribute("result", "글 삭제 실패");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("result", "답변 삭제 실패");
 		}
 		
 	}
