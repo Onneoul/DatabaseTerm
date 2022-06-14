@@ -9,6 +9,20 @@ td {
 
 a {
     text-decoration: none;
+    color: black;
+}
+
+a:link {
+	color: black;
+}
+a:visited {
+	color: black;
+}
+a:hover {
+	color: black;
+}
+a:active {
+	color: black;	
 }
 
 hr {
